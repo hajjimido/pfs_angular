@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 2,
+      "titre": "tele",
+      "price": 80,
+      "filiere":"genie indus"
+    },
+    {
+      "id": 3,
+      "titre": "mac",
+      "price": 80,
+      "filiere":"genie reseau"
+    }
+  ]
+}

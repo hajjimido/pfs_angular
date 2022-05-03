@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <ul class="navbar navbar-nav">
+        <li >
+            <button (click)="getAll()" class="btn btn-outline-info ml-2">All</button>
+    
+        </li>
+    </ul>
+    <form class=" col-lg-5" style="margin-left: 700px;display: inline-flex;" #F="ngForm" (ngSubmit)="search(F.value)" >
+        <div class="form-group">
+        <select ngModel name="filiere" style="width: 200px;"  >
+          <option>genie info</option>
+          <option>genie reseau</option>
+          <option>genie indus</option>
+        </select>
+      <input  ngModel name="titre" style="width: 200px; margin-left: 20px;" type="search" placeholder="Search" aria-label="Search">
+     
+      <button class="btn btn-outline-success my-2 my-sm-0" style="margin-left:20px;" type="submit">Search</button>
+    </div>
+    </form>
+
+    </nav>
+
+<div class="container py-5 "  *ngIf="products$ | async as result" [ngSwitch]="result.datastate" >
+    <ng-container *ngSwitchCase="StateEnum.loading">
+        loading ...
+    </ng-container>
+    <ng-container *ngSwitchCase="StateEnum.Eroor">
+        <div class="alert-danger">
+            {{result.errormessage}}
+        </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="StateEnum.loaded">
+    <div class="row g-0" *ngFor="let p of result.data" style="background-color:aqua; margin-top: 10px; width: 700px; height: 200px;">
+        
+            <div class="col-lg-5">
+                   
+                    <img style="height: 200px;" src="../../../assets/image/bg.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-3"  >
+                        
+                        <h1 style="font-size: 35px;">{{p.price}}</h1>
+                        <h1 style="font-size: 25px;">{{p.titre}}</h1>
+                    
+                    <div style="margin-top: 70px;" >
+                        <div style="border-bottom: 1px black solid; width: 408px;"></div>
+                        <h1 style="font-size: 17px;">{{p.filiere}}</h1>
+                        <div class="col-lg-5" style="display: inline-block;">
+                        <h1 style="font-size: 15px;">autre</h1>
+                
+                    </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 py-2" style="margin-top: 140px;" >
+                    <span class="fa fa-map-marker"> Ensa marrakech
+                    
+                </span>
+                </div>
+                <div class="col-lg-1 py-2" >
+                <button class="btn btn-outline-info">
+                    <span class="fa fa-heart" style="color: red;"></span>
+                </button>
+                </div>
+               
+
+                </div>
+    </ng-container>
+            </div>
+           
