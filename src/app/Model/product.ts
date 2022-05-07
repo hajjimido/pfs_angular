@@ -3,5 +3,4 @@ export interface Product{
     titre:string;
     price:number;
     filiere:string;
-    
 }
