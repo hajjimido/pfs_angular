@@ -1,0 +1,55 @@
+<div class="container-fluid my_container row m-0 vh-100 justify-content-center align-items-center">
+    <div class="container row bg-white col-12 col-md-8 col-lg-11 col-xl-9  m-0 p-0 rounded-3 my_animation">
+        <form #F="ngForm" class="col bg-light px-4 px-sm-5 py-4 my_form"
+          (submit)="onSubmit(F)" >
+
+            <h3 class="fw-bold mb-4">Register</h3>  
+            <div >
+                <label for="fullName" class="pb-1 my_label">Fullname:</label>
+                <input type="text" id="email" name="fullName" class="form-control" placeholder="Enter your fullname" required  ngModel />
+            </div>
+
+            <div class="pt-1">
+                <label for="email" class="pb-1 my_label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required  ngModel />
+            </div>
+            
+            <div class="pt-1">
+                <label for="phone" class="pb-1 my_label">Phone number:</label>
+                <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required  ngModel />
+            </div>
+
+            <div class="py-1">
+                <label for="branch" class="pb-1 my_label">Branch:</label>
+                <select id="branch" name="branch" class="form-control form-select" ngModel required>   
+                  <option selected disabled value="">Choose your branch</option>
+                  <option value="GI" class="branch_option">GI</option>
+                  <option value="GE" class="branch_option">GE</option>
+                  <option value="GRT" class="branch_option">GRT</option>
+                  <option value="GLM" class="branch_option">GLM</option>
+                  <option value="CP" class="branch_option">CP</option>
+                </select>
+            </div>
+
+            <div class="py-1">
+                <label for="password" class="pb-1 my_label">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required ngModel />
+            </div>
+        
+            <button type="submit" class="w-100 text-white bg-primary border-0 py-2 my-4 rounded-1 my_button">
+                Register
+            </button>
+            <div class="my_label">
+                Already have an account ?
+                <a [routerLink]="['/auth/login']" class="ml-2 color-primary">Log in</a>
+            </div>
+
+        </form>
+
+        <div class="d-lg-block col-6 bg-primary my_decoration">
+            <h1 class="title my_font_family">ENSA market place</h1>
+        </div>
+
+    </div>
+</div>
+<h1 class="title secondary_title my_font_family text-dark">ENSA market place</h1>

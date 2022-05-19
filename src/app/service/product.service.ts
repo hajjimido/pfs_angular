@@ -6,17 +6,17 @@ import { environment } from "src/environments/environment";
 @Injectable({providedIn:"root"})
 
 export class Productservice{
+
+    private host:string = environment.host;
+
     constructor(private http:HttpClient){
 
     }
     getAllproducts():Observable<Product[]>{
-        let host=environment.host;
-        return this.http.get<Product[]>(host+"/products")
+        return this.http.get<Product[]>(this.host+"/products")
     }
     searchproduit(f:any):Observable<Product[]>{
-        let host=environment.host;
-        return this.http.get<Product[]>(host+"/products?titre_like="+f.titre+"&&filiere_like="+f.filiere);
-
+        return this.http.get<Product[]>(this.host+"/products?titre_like="+f.titre+"&&filiere_like="+f.filiere);
 
     }
 }
