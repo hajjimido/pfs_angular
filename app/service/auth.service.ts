@@ -1,0 +1,77 @@
+import { HttpClient } from '@angular/common/http';
+import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
+import { Injectable } from '@angular/core';
+import { EmailValidator, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+import { environment } from 'src/environments/environment';
+import { LoginResponce } from '../Model/loginResponse';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  basic_url:string = environment.host;
+
+  constructor(private http :HttpClient,
+     private toast: NgToastService,
+     private router:Router) { }
+
+  public register(myForm : NgForm){
+      const {
+        fullName,
+        email,
+        phone,
+        branch,
+        password
+      } = myForm.value;
+      const data = {
+        fullName,
+        phone,
+        branch,
+        auth:{
+          email,
+          password
+        }
+      }
+      console.log(data);
+      
+      this.http.post(`${this.basic_url}/register`,data,{responseType:"text"}).subscribe(
+        (result)=>{
+          const toast = this.toast.success(
+            {detail: result.toString(),
+            duration:2000});
+          setTimeout(()=>{
+            this.router.navigate(["auth/login"]);
+          },2000)
+        },
+        (errors)=>{
+          this.toast.error(
+            {detail: errors.error,
+            duration:2000});
+        },
+        ()=>{
+        }
+      ) 
+  }
+
+  public login(myForm:NgForm){
+    const {email,password} = myForm.value;
+    const data = {email, password};
+    console.log(this.router.getCurrentNavigation());
+
+    this.http.post<LoginResponce>(`${this.basic_url}/login`,data).subscribe(
+      (result)=>{
+        localStorage.setItem("access-token",result.access_token);
+        localStorage.setItem("refresh-token",result.refresh_token);
+        this.router.navigate([""]);
+      },
+      (errors)=>{
+        const toast = this.toast.error(
+          {detail: errors.error.message,
+          duration:2000});
+      }
+    )
+  }
+}

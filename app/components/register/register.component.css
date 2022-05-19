@@ -1,0 +1,55 @@
+
+
+.my_container{
+    background-image:url("/assets/image/auth_background_image.svg");
+    background-position: center;
+    background-size: cover;
+}
+.my_form{
+    border-radius: 15px 0  0 15px;
+}
+.my_decoration{
+    background-image:url("/assets/image/auth_decoration_image.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 15px 15px 0;
+    position:relative;
+}
+.title{
+    position: absolute;
+    font-size: 4e;
+    top:20px;
+    color:white;
+    font-weight: bolder;
+    left: 20px;
+}
+
+.my_label{
+    font-weight: 500;
+}
+.my_button:hover{
+    filter: brightness(0.95);
+}
+.branch{
+    display: block;
+}
+.my_animation{
+    position: relative;
+    top:-100px;    
+    opacity: 0;
+    animation:my_animation 0.4s linear forwards;
+}
+.secondary_title{
+    position:absolute;
+    top: 10px;
+    left: 30px;
+    background-color: rgba(255, 255, 255, 0.826);
+    padding:2px 6px;
+    border-radius:5px;
+}
+@keyframes my_animation{
+    to{
+        opacity: 1;
+        top:0
+    }
+}
