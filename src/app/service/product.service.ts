@@ -10,13 +10,15 @@ export class Productservice{
 
     }
     getAllproducts():Observable<Product[]>{
-        let host=environment.host;
-        return this.http.get<Product[]>(host+"/products")
+        let host=environment.hostspring;
+        return this.http.get<Product[]>(host+"/produits/")
     }
-    searchproduit(f:any):Observable<Product[]>{
-        let host=environment.host;
-        return this.http.get<Product[]>(host+"/products?titre_like="+f.titre+"&&filiere_like="+f.filiere);
-
-
+    getprd(f:Number):Observable<Product>{
+        let host=environment.hostspring;
+        return this.http.get<Product>(host+"/produits/"+f);
+    }
+    searchbyPrduit(f:any):Observable<Product[]>{
+        let host=environment.hostspring;
+        return this.http.get<Product[]>(host+"/produits/filiere/"+f);
     }
 }
