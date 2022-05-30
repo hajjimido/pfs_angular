@@ -1,0 +1,20 @@
+
+
+.post_container{
+    background-color: white;
+    box-shadow: 10px 10px 10px rgb(190, 190, 190);
+    border-radius:  0 0 10px 10px;
+}
+.background_image{
+    height: 220px;
+    background-image: url("/assets/image/admin_auth_background.svg");
+    background-size:cover;
+    background-position: center;
+}
+.post_title{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.show_details{
+    border: none;
+}

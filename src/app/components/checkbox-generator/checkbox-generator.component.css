@@ -1,0 +1,32 @@
+input[type="radio"] {
+  display: none;
+}
+
+.radio_label{
+  height:24px;
+  width: 24px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: solid 2px;
+  border-color:var(--color-primary-bootstrap) !important;
+  background-color:transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio_label::before{
+  content: "";
+  position: absolute;
+  z-index: 5;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background-color: var(--color-primary-bootstrap);
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+input[type="radio"]:checked + .radio_label::before{
+  transform: scale(1);
+}

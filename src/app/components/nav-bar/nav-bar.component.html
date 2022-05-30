@@ -1,15 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">PFS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <button type="button" routerLink="/connecter" class="btn btn-outline-secondary mx-auto">se connecter</button>
-    <button type="button"  routerLink="/add" class="btn btn-primary "  data-toggle="button" aria-pressed="false" autocomplete="off">
-        deposer une annonce
+<nav class="d-flex justify-content-between justify-content-md-between justify-content-lg-around align-items-center p-0">
+    
+    <h1 class="logo ms-3 ms-lg-0 my_font_family">ENSA market place</h1>
+    
+    <div class="d-none d-lg-flex">
+
+      <div class="nav-element border-parimary text-primary me-4"
+      (click)="navigateToHomePage()">
+        <mat-icon>home</mat-icon>
+        <h1 class="my_font_family">HOME</h1>
+      </div>
+
+      <div class="nav-element border-success text-success me-4"
+      (click)="navigateToAddPostPage()">
+        <mat-icon>add</mat-icon>
+        <h1 class="my_font_family ">ADD POST</h1>
+      </div>
+
+      <div class="nav-element login me-4"
+        (click)="navigateToLoginPage()">
+        <mat-icon>account_circle</mat-icon>
+        <h1 class="my_font_family">LOGIN</h1>
+      </div>
+          
+    </div>
+
+    <input type="checkbox" id="nav_input_button">
+    <label for="nav_input_button" id="nav_button_label" class="d-block d-lg-none me-3"></label>
+
+    <div id="secondary_nav_bar" class="d-flex d-lg-none flex-column align-items-center">
+      <button class="btn btn-primary bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToHomePage()">   
+        <mat-icon aria-hidden="false">home</mat-icon>
+        <div class="ms-3">Home</div>
       </button>
-      </nav>
+      <button class="btn btn-primary py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
+        <mat-icon aria-hidden="false">account_circle</mat-icon>
+        <div class="ms-3">Login</div>
+      </button>
+      <button class="btn btn-success py-2 mb-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToAddPostPage()">   
+        <mat-icon aria-hidden="false">add</mat-icon>
+        <div class="ms-3">Add post</div>
+      </button>
+      <button class="btn btn-warning py-2 my_button align_center align-self-stretch no_border_radius"  (click)="openFilters()">   
+        <mat-icon aria-hidden="false">filter_list</mat-icon>
+        <div class="ms-3">Add filter</div>
+      </button>
+    </div>    
+</nav>
+
+
    
-           
-       
-   
+
 

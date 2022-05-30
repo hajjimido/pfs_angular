@@ -1,0 +1,15 @@
+<div *ngFor="let choice of choices.choice;let i = index" class="form-check d-flex  align-items-center mt-2" >
+    <input  [id]="choices.name+'_'+i" *ngIf="choice.label=='All';else not_checked" class="form-check-input" type="radio" value="{{choice.label}}" id="flexCheckDefault" name="{{choices.name}}" checked
+    (change)="changeState(choices.name,choice.label)">
+    <label [for]="choices.name+'_'+i" class="radio_label"></label>
+
+    <ng-template #not_checked>
+        <input  [id]="choices.name+'_'+i" class="form-check-input" type="radio" value="{{choice.label}}" id="flexCheckDefault" name="{{choices.name}}" 
+        (change)="changeState(choices.name,choice.label)">
+    </ng-template>
+    <mat-icon *ngIf="choice.icon != '' " class="ms-3" >{{choice.icon}}</mat-icon>
+    <label  class="form-check-label ms-3" for="flexCheckDefault">
+    {{choice.label}}
+    </label>
+</div>
+

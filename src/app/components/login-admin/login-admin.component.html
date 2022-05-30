@@ -1,9 +1,9 @@
 <div class="container-fluid my_container row m-0 vh-100 justify-content-center align-items-center">
-    <div class="container row bg-white col-12 col-md-8 col-lg-11 col-xl-8  m-0 p-0 rounded-3
+    <div class="container row bg-white col-12 col-md-8 col-lg-6 col-xl-5  m-0 p-0 rounded-3
     my_animation">
         <form #F="ngForm" class="col- col bg-light px-4 px-sm-5 py-5 my_form" [noValidate]="false" (submit)="onSubmit(F)" >
 
-            <h3 class="fw-bold mb-4">Login</h3>         
+            <h3 class="fw-bold mb-4">Admin</h3>         
             <div class="py-2">
                 <label for="email" class="pb-1 my_label">Email:</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required  ngModel />
@@ -19,23 +19,16 @@
                     Remember me
                     </label>
                 </div>
-                <a class="color-primary-user my_label my_button" style="cursor:pointer">Forget password?</a>
+                <a class="color-primary-admin my_label my_button" style="cursor:pointer">Forget password?</a>
             </div>
 
-            <button type="submit" class="w-100 text-white bg-primary-user border-0 py-2 my-4 rounded-1 my_button">
+            <button type="submit" class="w-100 text-white bg-primary-admin border-0 py-2 mt-4 rounded-1 my_button">
                 Login
             </button>
-            <div class="my_label">
-                Not registred yet ?
-                <a [routerLink]="['/auth/register']" class="ml-2 color-primary-user my_button">Create an account</a>
-            </div>
 
         </form>
 
-        <div class="d-none d-lg-block col-6 bg-primary-user my_decoration">
-            <h1 class="title my_font_family">ENSA market place</h1>
-        </div>
     </div>
 </div>
 
-<h1 class="title my_font_family text-dark d-block d-lg-none">ENSA market place</h1>
+<h1 class="title  my_font_family text-white d-block d-lg-none">ENSA market place</h1>

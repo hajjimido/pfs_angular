@@ -1,9 +1,11 @@
 
-
 .my_container{
     background-image:url("/assets/image/auth_background_image.svg");
     background-position: center;
     background-size: cover;
+}
+h1{
+    font-size: 38px !important;
 }
 .my_form{
     border-radius: 15px 0  0 15px;
@@ -17,7 +19,7 @@
 }
 .title{
     position: absolute;
-    font-size: 4e;
+    font-size: 4em;
     top:20px;
     color:white;
     font-weight: bolder;
@@ -28,11 +30,12 @@
     font-weight: 500;
 }
 .my_button:hover{
-    filter: brightness(0.95);
+    filter: brightness(1.2);
 }
 .branch{
     display: block;
 }
+
 .my_animation{
     position: relative;
     top:-100px;    
@@ -47,6 +50,12 @@
     padding:2px 6px;
     border-radius:5px;
 }
+
+.form-control:focus {
+    border-color: var(--main-color-user) !important;
+    box-shadow: 0 0 0 0.2rem #30989a57;
+} 
+
 @keyframes my_animation{
     to{
         opacity: 1;

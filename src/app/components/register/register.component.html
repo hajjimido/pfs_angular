@@ -1,7 +1,7 @@
 <div class="container-fluid my_container row m-0 vh-100 justify-content-center align-items-center">
     <div class="container row bg-white col-12 col-md-8 col-lg-11 col-xl-9  m-0 p-0 rounded-3 my_animation">
         <form #F="ngForm" class="col bg-light px-4 px-sm-5 py-4 my_form"
-          (submit)="onSubmit(F)" >
+        [noValidate]="false" (submit)="onSubmit(F)" >
 
             <h3 class="fw-bold mb-4">Register</h3>  
             <div >
@@ -36,20 +36,20 @@
                 <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required ngModel />
             </div>
         
-            <button type="submit" class="w-100 text-white bg-primary border-0 py-2 my-4 rounded-1 my_button">
+            <button type="submit" class="w-100 bg-primary-user text-white border-0 py-2 my-4 rounded-1 my_button">
                 Register
             </button>
             <div class="my_label">
                 Already have an account ?
-                <a [routerLink]="['/auth/login']" class="ml-2 color-primary">Log in</a>
+                <a [routerLink]="['/auth/login']" class="ml-2 color-primary-user my_button">Log in</a>
             </div>
 
         </form>
 
-        <div class="d-lg-block d-none col-6 bg-primary my_decoration">
+        <div class="d-lg-block d-none col-6 bg-primary-user my_decoration">
             <h1 class="title my_font_family">ENSA market place</h1>
         </div>
 
     </div>
 </div>
-<h1 class="title secondary_title my_font_family text-dark d-block d-lg-none">ENSA market place</h1>
+<h1 class="title my_font_family text-dark d-block d-lg-none">ENSA market place</h1>

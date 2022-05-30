@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({

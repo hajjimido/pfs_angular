@@ -1,0 +1,67 @@
+<section class="my_container row">
+  
+  <form #myForm id="filters" class="filters d-none d-lg-flex col-lg-3 d-flex flex-column  px-0 px-lg-3 px-2" (reset)="resetFilters()">
+
+      <mat-icon class="my-lg-4 my-5">filter_list</mat-icon>
+
+      <div class="mt-5 d-flex justify-content-around justify-content-lg-between filters_title fs-5">
+        <div class="text-black">Filter by</div>
+        <div class="text-primary reset_button" (click)="myForm.reset()">Reset filters</div>
+      </div>
+      <div class="my-3 my-md-4 hr"></div>
+
+      <div class="d-flex d-lg-block justify-content-around mb-5 mb-lg-0">
+        <div class="filter">
+          <div class="filter_title text-secondary ">
+            Branch
+          </div>
+
+          <div class="ps-3 pt-1 fs-6">
+            <app-checkbox-generator 
+              [choices]="{name:'branch',choice:[
+              {label:'All',icon:'school'},
+              {label:'GI',icon:'devices'},
+              {label:'GE',icon:'cable'},
+              {label:'GIL',icon:'work'},
+              {label:'GRT',icon:'cell_tower'},
+              {label:'CP',icon:'engineering'}
+              ]}" 
+              (onChangeEvent)="changeState($event)"
+            >
+            </app-checkbox-generator>
+          </div>
+          
+      </div>
+        <div class="filter mt-md-3 ">
+          <div class="filter_title text-secondary">
+            Type
+          </div>
+          
+          <div class="ps-3 pt-1 fs-6">
+            <app-checkbox-generator 
+              [choices]="{name:'type',
+            choice:[
+            {label:'All',icon:''},
+            {label:'Service',icon:''},
+              {label:'Product',icon:''}
+              ]}"
+              (onChangeEvent)="changeState($event)"
+              >
+            </app-checkbox-generator>
+          </div>
+          
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-5 mt-md-4 px-3 px-md-4  align-self-center d-flex my_button" type="submit">
+        <mat-icon style="font-size:1.5rem" class="me-2 me-md-3">search</mat-icon>
+        <div>Search</div>
+      </button>
+  </form>
+    
+  <div class="d-none d-lg-block col-lg-3"></div>
+
+  <app-posts class="col-12 col-lg-9 m-0"></app-posts>
+
+</section>
+

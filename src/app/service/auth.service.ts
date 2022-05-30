@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
 import { LoginResponce } from '../Model/loginResponse';
+import { TokenManagerService } from './token-manager.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthService {
 
   constructor(private http :HttpClient,
      private toast: NgToastService,
-     private router:Router) { }
+     private router:Router,
+     private tokenManager:TokenManagerService) { }
 
   public register(myForm : NgForm){
       const {
@@ -35,7 +37,6 @@ export class AuthService {
           password
         }
       }
-      console.log(data);
       
       this.http.post(`${this.basic_url}/register`,data,{responseType:"text"}).subscribe(
         (result)=>{
@@ -56,16 +57,24 @@ export class AuthService {
       ) 
   }
 
-  public login(myForm:NgForm){
+  public login(myForm:NgForm,authentication_type:string){
     const {email,password} = myForm.value;
     const data = {email, password};
-    console.log(this.router.getCurrentNavigation());
 
-    this.http.post<LoginResponce>(`${this.basic_url}/login`,data).subscribe(
-      (result)=>{
-        localStorage.setItem("access-token",result.access_token);
-        localStorage.setItem("refresh-token",result.refresh_token);
-        this.router.navigate([""]);
+    this.http.post<LoginResponce>(`${this.basic_url}/login`,data,
+     {
+       headers:{
+         "Authentication_type":`${authentication_type}`
+       }
+     }).subscribe(
+      (response)=>{
+        this.tokenManager.storeTokens(
+          {
+            acc:response.access_token,
+            ref:response.refresh_token
+          })
+        
+        console.log(authentication_type);
       },
       (errors)=>{
         const toast = this.toast.error(
@@ -73,5 +82,9 @@ export class AuthService {
           duration:2000});
       }
     )
+  }
+
+  public isAuthenticated():boolean{
+    return this.tokenManager.getAccessToken() != null;
   }
 }

@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AjouterannonceComponent } from './components/ajouterannonce/ajouterannonce.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { LoginComponent } from './components/login/login.component';
-import { ProductsComponent } from './components/products/products.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path:"auth" ,
     children:[
-      {path:"login",component:LoginComponent},
-      {path:"register",component:RegisterComponent},
+      {path:"login",component:LoginComponent,
+        data:{title:"Login"}},
+      {path:"register",component:RegisterComponent,
+        data:{title:"Register"}},
+      {path:"admin",component:LoginAdminComponent,
+        data:{title:"Login"}},
       {path:"",redirectTo:"/auth/login",pathMatch:"full"}
     ]
   }
@@ -20,11 +26,21 @@ const routes: Routes = [
     path:"",
     component:HomeComponent,
     children:[
-      {path:"add",component:AjouterannonceComponent},
-      {path:"",component:ProductsComponent}
+      {
+        path:"",
+        component:MainPageComponent
+      },{
+        path:"post",
+        children:[
+          {
+            path:"add",
+            component:AddPostComponent
+          }
+        ]
+      }
     ]
+    
   }
-  
 ];
 
 @NgModule({

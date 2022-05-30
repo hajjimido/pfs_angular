@@ -5,30 +5,47 @@ import { NgToastModule } from 'ng-angular-popup';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { AjouterannonceComponent } from './components/ajouterannonce/ajouterannonce.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ProductsComponent } from './components/products/products.component';
-
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule} from "@angular/material/icon"
+import { MatFormFieldModule} from "@angular/material/form-field"
+import { MatSelectModule} from "@angular/material/select";
+import {  MatSidenavModule} from "@angular/material/sidenav";
+import { CheckboxGeneratorComponent } from './components/checkbox-generator/checkbox-generator.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostComponent } from './components/post/post.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { MainPageComponent } from './components/main-page/main-page.component'
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    AjouterannonceComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProductsComponent
+    LoginAdminComponent,
+    CheckboxGeneratorComponent,
+    PostsComponent,
+    PostComponent,
+    AddPostComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgToastModule
+    NgToastModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

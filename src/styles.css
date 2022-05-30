@@ -6,29 +6,48 @@
     src: url("assets/fonts/Macondo-Regular.ttf");
 }
 :root{
-
-    --main-color :#5138ed;
-    --main-color:rgb(255, 175, 0);
-    --main-color-rgba :#5038ed72;
+    --main-color-user:rgb(255, 175, 0);
+    --main-color-user:#30999A;
+    --main-color-admin:#123466;
+    --nav-bar-height : 65px;
+    --color-primary-bootstrap:rgb(13, 110, 253)
 }
-.bg-primary{
-    background-color: var(--main-color) !important;
-}
-
-.color-primary{
-    color : var(--main-color) !important;
+.bg-primary-user{
+    background-color: var(--main-color-user) !important;
 }
 
-.form-control:focus{
-    border-color: var(--main-color) !important;
-    box-shadow: 0 0 0 0.2rem var(--main-color-rgba);
+.color-primary-user{
+    color : var(--main-color-user) !important;
 }
 
-select option:hover{
-    background-color: var(--main-color) !important;
-    color: var(--main-color);
+.bg-primary-admin{
+    background-color: var(--main-color-admin) !important;
+}
+
+.color-primary-admin{
+    color : var(--main-color-admin) !important;
 }
 
 .my_font_family{
     font-family:my_font_family !important;
+}
+
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my_container{
+    min-height: 100%;
+    width: 100% ;
+    flex:1;
+    background-color: rgb(242,242,242);
+    margin-top: var(--nav-bar-height);
+    position: relative;
+    margin: 0 ;
+}
+
+
+.btn:focus{
+    outline: none !important;
+    box-shadow: none !important;
 }
