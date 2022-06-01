@@ -1,20 +1,25 @@
 import { HttpClient } from '@angular/common/http';
+import { typeofExpr } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
+import { TokenManagerService } from './token-manager.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
+  public branch = "all";
+  public type = "all";
   basic_url:string = environment.host;
   
   constructor(private http:HttpClient,
              private toast:NgToastService,
-             private router:Router) { }
+             private router:Router,
+             private tokenManager:TokenManagerService) { }
 
   createPost(data :FormData){
 
@@ -37,7 +42,7 @@ export class PostService {
         validForm = false;
         this.toast.error(
           {
-            detail:"The price should by a type number",
+            detail:"The price must be a type number",
             duration:2000
         });
       }
@@ -55,6 +60,11 @@ export class PostService {
     }
     if(validForm == true){
       this.http.post(`${this.basic_url}/post/add`,data,
+      {
+        headers:{
+          "Authorization":`Bearer ${this.tokenManager.getAccessToken()}`
+        }
+      }
       ).subscribe(
         (response)=>{
           this.toast.success(
@@ -80,5 +90,16 @@ export class PostService {
     
   }
   
+  getAllPosts(){
+    console.log(this.branch+"-"+this.type);
+    return this.http.get(
+      `${this.basic_url}/post/all?page=1&branch=${this.branch}&type=${this.type}`
+    );
+  }
+
+  resetFilters(){
+    this.type = "all";
+    this.branch = "all";
+  }
 
 }

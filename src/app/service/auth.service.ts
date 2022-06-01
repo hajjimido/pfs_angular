@@ -73,15 +73,16 @@ export class AuthService {
             acc:response.access_token,
             ref:response.refresh_token
           })
-        
-        console.log(authentication_type);
-      },
+        },
       (errors)=>{
         const toast = this.toast.error(
           {detail: errors.error.message,
           duration:2000});
       }
-    )
+    );
+    if(authentication_type == "USER"){
+      this.router.navigate([""])
+    }
   }
 
   public isAuthenticated():boolean{

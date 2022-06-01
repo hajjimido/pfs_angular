@@ -17,6 +17,5 @@ export class Productservice{
     }
     searchproduit(f:any):Observable<Product[]>{
         return this.http.get<Product[]>(this.host+"/products?titre_like="+f.titre+"&&filiere_like="+f.filiere);
-
     }
 }

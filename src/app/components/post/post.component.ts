@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
+  @Input() post:any;
   constructor() { }
 
   ngOnInit(): void {
+    this.calculateData(this.post.creationDate);
+  }
+
+  calculateData(date:string){
+    let datt = new Date();
+  
   }
 
 }
