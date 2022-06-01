@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/Model/product';
 
 @Component({
   selector: 'app-post',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
-  constructor() { }
+  produit?:Product
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
+  }
+  route_ver_detail(id:any){
+    this.route.navigateByUrl("/detail")
   }
 
 }

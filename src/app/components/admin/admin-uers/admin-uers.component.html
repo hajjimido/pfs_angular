@@ -1,0 +1,13 @@
+<table class="table">
+    <tr>
+        <th>ID</th><th>User</th><th>email</th><th>full name</th>
+    </tr>
+    <tr *ngFor="let users of Users"> 
+    <td>{{users.id}}</td>
+    <td> <img style="width:60px ; height:60px" src="../../../assets/image/admin.png"></td>
+    <td>{{users.auth.email}}</td>
+    <td>{{users.fullName}}</td>
+    
+    <button  style="margin-top:5%;width: 70%;" class="btn btn-danger" (click)="delete(users.id,users.auth.email)" >delete </button><br>
+    <button style="width: 70%;"class="btn btn-success"  >valide</button>
+</tr>

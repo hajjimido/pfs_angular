@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPostComponent } from './components/add-post/add-post.component';
+import { AdminDashComponent } from './components/admin/admin-dash/admin-dash.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
+import { AdminUersComponent } from './components/admin/admin-uers/admin-uers.component';
+import { ProduitNonValideComponent } from './components/admin/produit-non-valide/produit-non-valide.component';
+import { DetailComponent } from './components/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,18 +35,47 @@ const routes: Routes = [
       {
         path:"",
         component:MainPageComponent
+      },
+      {
+        path:"detail",
+        component:DetailComponent
       },{
         path:"post",
         children:[
           {
             path:"add",
             component:AddPostComponent
-          }
+          },
+          
         ]
       }
-    ]
+    ],
     
-  }
+    
+  },
+  {
+    path:"admin",
+    component:AdminHomeComponent ,
+    children:[
+      { path:"dashboard",
+       component:AdminDashComponent
+
+      },
+      { path:"users",
+      component:AdminUersComponent
+
+     },
+     { path:"products",
+      component:AdminProductComponent
+
+     },
+     {
+      path:"active",
+      component:ProduitNonValideComponent
+     }
+
+    ]
+    }
 ];
 
 @NgModule({

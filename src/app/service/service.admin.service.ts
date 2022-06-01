@@ -1,0 +1,47 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { NgToastService } from 'ng-angular-popup';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Auth } from '../Model/User';
+
+import { TokenManagerService } from './token-manager.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminService {
+
+  
+  basic_url:string = environment.host;
+  data?:Array<any>
+  constructor(private http :HttpClient,
+      private toast: NgToastService,
+      private router:Router,
+      private tokenManager:TokenManagerService) { }
+
+      getUsers():Observable<Object[]>{
+          return this.http.get<Object[]>(this.basic_url+"/users")
+
+      }
+      delete(id:any,email:any){
+      
+       
+         this.http.delete(`${this.basic_url}`+"/deleteuser/"+email+"/"+id,{responseType:"text"}).subscribe((res)=>{
+          const toast = this.toast.success(
+            {detail: res.toString(),
+            duration:2000});
+            location.reload();},
+            
+
+            (error)=>{
+              const toast = this.toast.error(
+                {detail: error.error,
+                duration:2000});}
+            
+            
+         )
+      }
+}

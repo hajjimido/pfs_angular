@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgToastModule } from 'ng-angular-popup';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -20,7 +20,15 @@ import { CheckboxGeneratorComponent } from './components/checkbox-generator/chec
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
-import { MainPageComponent } from './components/main-page/main-page.component'
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { SwiperDetailComponent } from './components/swiper-detail/swiper-detail.component'
+import { AdminDashComponent } from './components/admin/admin-dash/admin-dash.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
+import { AdminUersComponent } from './components/admin/admin-uers/admin-uers.component';
+import { ProduitNonValideComponent } from './components/admin/produit-non-valide/produit-non-valide.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +41,15 @@ import { MainPageComponent } from './components/main-page/main-page.component'
     PostsComponent,
     PostComponent,
     AddPostComponent,
-    MainPageComponent
+    MainPageComponent,
+    DetailComponent,
+    SwiperDetailComponent,
+    AdminDashComponent,
+    AdminHomeComponent,
+    AdminProductComponent,
+    AdminUersComponent,
+    ProduitNonValideComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -45,7 +61,8 @@ import { MainPageComponent } from './components/main-page/main-page.component'
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

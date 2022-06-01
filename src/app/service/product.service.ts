@@ -12,11 +12,18 @@ export class Productservice{
     constructor(private http:HttpClient){
 
     }
-    getAllproducts():Observable<Product[]>{
+
+    //a suprrimer
+   /* getAllproducts():Observable<Product[]>{
         return this.http.get<Product[]>(this.host+"/products")
     }
     searchproduit(f:any):Observable<Product[]>{
         return this.http.get<Product[]>(this.host+"/products?titre_like="+f.titre+"&&filiere_like="+f.filiere);
 
+    }*/
+    getprd(f:Number):Observable<Product>{
+        
+        return this.http.get<Product>("$$$$$"+f);
     }
+
 }

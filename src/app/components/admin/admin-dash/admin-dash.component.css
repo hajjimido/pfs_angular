@@ -1,0 +1,31 @@
+
+
+.all{
+    display: flex; background-color: white;height: 130px;
+}
+
+.dash{
+    width:30%; 
+    height:100px;
+}
+.sous{
+    width: 50%;
+    display: flex;
+}
+@media screen and (max-width:580px) {
+
+    .dash{
+       
+        width:90px; 
+        height:80px;
+        
+    }
+    .all{
+        display: block;
+    }
+    .sous{
+        width: 100%;
+    }
+
+    
+}
