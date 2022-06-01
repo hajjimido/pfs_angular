@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  public numbers = [1,2,3,4,5,6,7,8,9,10,11]
-  constructor() { }
+
+  @Input() posts=[];
+
+  constructor(private postService:PostService) { }
 
   ngOnInit(): void {
-
+    console.log(this.posts)
   }
 
 }

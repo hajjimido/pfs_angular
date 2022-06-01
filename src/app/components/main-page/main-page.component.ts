@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PostService } from 'src/app/service/post.service';
+import { PostsComponent } from '../posts/posts.component';
 
 @Component({
   selector: 'app-main-page',
@@ -7,29 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  public branch:string = "All";
-  public type:string = "All";
   public showFilter:boolean = true;
+  public posts:any;
 
-  constructor() { }
+  constructor(private postService:PostService) { }
 
   ngOnInit(): void {
+    this.fetchPosts();
+  }
+  
+  submitFilters(){
+    this.fetchPosts();
+  }
+
+  fetchPosts(){
+    this.postService.getAllPosts().subscribe(
+      (data:any)=>{
+        this.posts = data.content;
+        console.log(this.posts)     
+      },
+      (error)=>{
+        this.posts = [];
+      }
+    );
   }
   
   resetFilters(){
-    this.branch = "All";
-    this.type = "All";
+    this.postService.resetFilters();
   }
 
-  changeState(event:any){
-    let filterName:string = event.name;
-  
-    if(filterName == "branch"){
-      this.branch = event.choice;
-    }
-    else{
-      this.type = event.choice;
-    }
-  }
   
 }

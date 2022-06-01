@@ -19,11 +19,14 @@ export class Productservice{
     }
     searchproduit(f:any):Observable<Product[]>{
         return this.http.get<Product[]>(this.host+"/products?titre_like="+f.titre+"&&filiere_like="+f.filiere);
+<<<<<<< HEAD
 
     }*/
     getprd(f:Number):Observable<Product>{
         
         return this.http.get<Product>("$$$$$"+f);
+=======
+>>>>>>> bcb6d297678b40f8b10615470de4896c1df8c550
     }
 
 }

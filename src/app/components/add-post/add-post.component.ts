@@ -19,8 +19,7 @@ export class AddPostComponent implements OnInit {
   createPost(event:any){
     const myForm = event.currentTarget;
     const data = new FormData(myForm);
-
-    this.postService.createPost(data);
+    this.postService.createPost(data)
   }
 
 }

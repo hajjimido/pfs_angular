@@ -1,6 +1,6 @@
 <section class="my_container row">
   
-  <form #myForm id="filters" class="filters d-none d-lg-flex col-lg-3 d-flex flex-column  px-0 px-lg-3 px-2" (reset)="resetFilters()">
+  <form #myForm (submit)="submitFilters()" id="filters" class="filters d-none d-lg-flex col-lg-3 d-flex flex-column  px-0 px-lg-3 px-2" (reset)="resetFilters()">
 
       <mat-icon class="my-lg-4 my-5">filter_list</mat-icon>
 
@@ -26,7 +26,6 @@
               {label:'GRT',icon:'cell_tower'},
               {label:'CP',icon:'engineering'}
               ]}" 
-              (onChangeEvent)="changeState($event)"
             >
             </app-checkbox-generator>
           </div>
@@ -45,7 +44,6 @@
             {label:'Service',icon:''},
               {label:'Product',icon:''}
               ]}"
-              (onChangeEvent)="changeState($event)"
               >
             </app-checkbox-generator>
           </div>
@@ -61,7 +59,7 @@
     
   <div class="d-none d-lg-block col-lg-3"></div>
 
-  <app-posts class="col-12 col-lg-9 m-0"></app-posts>
+  <app-posts  [posts]="posts" class="col-12 col-lg-9 m-0"></app-posts>
 
 </section>
 

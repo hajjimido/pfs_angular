@@ -1,4 +1,5 @@
 import { Component,OnInit, Input, Output,EventEmitter} from '@angular/core';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
   selector: 'app-checkbox-generator',
@@ -9,16 +10,19 @@ export class CheckboxGeneratorComponent implements OnInit {
 
   @Input() choices:{name:string,choice:{label:string,icon:string}[]} ={name:"",choice:[]}
 
-  @Output() onChangeEvent =new EventEmitter(); 
-  constructor() { }
+
+  constructor(private postService:PostService) { }
 
   ngOnInit(): void {
   }
 
   changeState(name:string,choice:string) {
-
-    this.onChangeEvent.emit({name:name,choice:choice});
-
+    if(name == "branch"){
+      this.postService.branch = choice.toLowerCase();
+    }
+    else{
+      this.postService.type = choice.toLowerCase();
+    }
   }
 
 }

@@ -1,4 +1,7 @@
 <div id="" class="my-5 row px-lg-2 px-3 py-5 justify-content-md-start
 justify-content-center my_container" >
-    <app-post *ngFor="let number of numbers" class="col-xl-4 col-sm-9 col-md-6 col-11"></app-post>
+    <app-post *ngFor="let post of posts" class="col-xl-4 col-sm-9 col-md-6 col-11"
+        [post]="post">
+        
+    </app-post>
 </div>
