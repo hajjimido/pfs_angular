@@ -21,6 +21,8 @@ export class AdminService {
       private toast: NgToastService,
       private router:Router,
       private tokenManager:TokenManagerService) { }
+      public branch = "all";
+      public type = "all";
 
       getUsers():Observable<Object[]>{
           return this.http.get<Object[]>(this.basic_url+"/users")
@@ -44,4 +46,32 @@ export class AdminService {
             
          )
       }
+      getAllproduit(){
+        return this.http.get(
+          `${this.basic_url}/post/all?page=1&branch=all&type=all`
+        );
+      }
+
+
+    deleteProduct(id:any,email:any){
+      
+       
+         this.http.delete(`${this.basic_url}`+"/deletProduct/"+email+"/"+id,{responseType:"text"}).subscribe((res)=>{
+          const toast = this.toast.success(
+            {detail: res.toString(),
+            duration:2000});
+            location.reload();},
+            
+
+            (error)=>{
+              const toast = this.toast.error(
+                {detail: error.error,
+                duration:2000});}
+            
+            
+         )
+      }
+    
+
+
 }
