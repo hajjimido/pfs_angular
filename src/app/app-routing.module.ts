@@ -70,7 +70,7 @@ const routes: Routes = [
 
      },
      {
-      path:"active",
+      path:"valide",
       component:ProduitNonValideComponent
      }
 

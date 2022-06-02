@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { identifierName } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -71,6 +72,28 @@ export class AdminService {
             
          )
       }
+      getAllproduitNotValid():Observable<Object[]>{
+        return this.http.get<Object[]>(this.basic_url+"/poductnotactive");
+      }
+      active(p:any){
+        console.log(p.user.auth.email)
+        return this.http.put(this.basic_url+"/valide/"+p.id,p.user.auth.email,{responseType:"text"}).subscribe((res)=>{
+          const toast = this.toast.success(
+            {detail: res.toString(),
+            duration:2000});
+            location.reload();},
+            
+
+            (error)=>{
+              const toast = this.toast.error(
+                {detail: error.error,
+                duration:2000});
+              console.log(error.error)}
+            
+            
+         )
+      }
+     
     
 
 

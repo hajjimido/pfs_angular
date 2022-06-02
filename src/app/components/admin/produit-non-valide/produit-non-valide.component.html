@@ -1,19 +1,19 @@
 <table class="table">
     <tr>
-        <th>ID</th><th>photo</th><th>Titre</th><th>Price</th><th>filiere</th>
+        <th>ID</th><th>photo</th><th>Titre</th><th>Price</th><th>type</th>
     </tr>
-    <tr >
-        <td><h1>1</h1></td>
+    <tr *ngFor="let p of posts">
+        <td><h1>{{p.id}}</h1></td>
         <td><img style="width: 80px;" src="../../assets/image/bg.jpg"></td>
-        <td><h1>mac</h1></td>
-        <td><h1>1500</h1></td>
-        <td><h1>genie info</h1></td>
+        <td><h1>{{p.title}}</h1></td>
+        <td><h1>{{p.price}}</h1></td>
+        <td><h1>{{p.type}}</h1></td>
 
         
     
    
-    <button  style="margin-top:5%;width: 70%;" class="btn btn-danger"  >delete</button><br>
-    <button style="width: 70%;"class="btn btn-success"  >valide</button>
+    <button  style="margin-top:5%;width: 70%;" class="btn btn-danger" (click)="delete(p.id,p.user.auth.email)" >delete</button><br>
+    <button style="width: 70%;"class="btn btn-success" (click)="valide(p)" >valide</button>
 
 </tr>
 </table>
