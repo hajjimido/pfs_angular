@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
+import { TokenManagerService } from 'src/app/service/token-manager.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ export class NavBarComponent implements OnInit {
 
   @Output() eventEmitter = new EventEmitter();
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private token:TokenManagerService) { }
 
   ngOnInit(): void {
   }
@@ -43,5 +45,15 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(["post/add"]);
     this.closeNavbar();
   }
+  isConnet():boolean{
+    console.log(localStorage.getItem("access-token"));
+    return this.token.isLogged();
+  }
+  disconnect(){
+  
+     return this.token.disconnect();
+
+  }
+ 
 
 }

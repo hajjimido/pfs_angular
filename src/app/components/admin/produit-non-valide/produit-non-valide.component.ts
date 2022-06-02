@@ -35,7 +35,7 @@ export class ProduitNonValideComponent implements OnInit {
     const toast = this.toast.success(
       {detail: "en cours",
       duration:2000});
-      this.adminservice.active(p);
+      this.adminservice.valide(p);
   }
 
 }

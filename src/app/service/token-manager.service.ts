@@ -14,11 +14,22 @@ export class TokenManagerService {
     localStorage.setItem("refresh-token",ref);
   }
 
-  getAccessToken(){
+  getAccessToken():any{
     return localStorage.getItem("access-token");
   }
+ 
+  public disconnect(){
+   return localStorage.clear();
+  }
   
-  isLogged(){
+  isLogged():boolean{
+   
+    if(this.getAccessToken()==null){
+      return true;
+    }
+    return false;
+
+    
 
   }
   getRoles(){

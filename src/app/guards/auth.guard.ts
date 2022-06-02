@@ -10,7 +10,7 @@ import { TokenManagerService } from '../service/token-manager.service';
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private authService:AuthService,
+    private token:TokenManagerService,
     private router:Router){
   }
 
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
-    const isAuthentication = this.authService.isAuthenticated()
+    const isAuthentication = this.token.isLogged();
 
     if(isAuthentication){
       return true;
