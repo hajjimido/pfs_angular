@@ -1,0 +1,37 @@
+<div *ngIf="user" class="card" style="margin-top: 10%;">
+    <p class="card-header">Informations Personnelles</p>
+    <div class="card-body" *ngIf="forme">
+        <form  [formGroup]="forme"class="row g-3"    [noValidate]="false">
+            <div  class="col-auto text-center"style="width: 20rem;" >
+              <img src="../../../assets/image/admin.png" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{user.fullName}}</h5>
+            <p class="text-muted mb-1">Client Ensa Ecommerce</p>
+            <p class="text-muted mb-4">Ensa Marrakech</p>
+        
+            </div>
+            <div class="col-auto" style="width: 20rem;">
+      <p  class="card-text" >FullName</p>
+      <input  name="fullName"  class="form-control-plaintext" style="width: 15rem;" value="{{user.fullName}}" formControlName="fullName" >
+      <p class="card-text" >Email</p>
+      <input type="email" name="email" class="form-control-plaintext"  id="staticEmail2" style="width: 15rem; " value="{{user.auth.email}}">
+      <p class="card-text">Phone Number</p>
+      <input name="phone" type="text" class="form-control-plaintext"   id="staticEmail2" style="width: 15rem;" value="{{user.phone}}"formControlName="phone" >
+    </div>
+      <div class="col-auto" style="width: 20rem;">
+      <p class="card-text">Branche</p>
+      <select id="branch" name="branch" class="form-control-plaintext " formControlName="branch" >   
+        <option selected disabled >Your Branche :{{user.branch}} </option>
+        <option value="gi" class="branch_option">GI</option>
+        <option value="ge" class="branch_option">GE</option>
+        <option value="grt" class="branch_option">GRT</option>
+        <option value="gil" class="branch_option">GLM</option>
+        <option value="cp" class="branch_option">CP</option>
+      </select>
+      <button type="submit" (click)="edit(forme.value)" class="btn btn-primary" style="margin-top: 15%;" >Enregistrer</button>
+     
+    </div>
+        
+    </form>
+    </div>
+  </div>

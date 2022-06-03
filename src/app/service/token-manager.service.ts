@@ -32,6 +32,16 @@ export class TokenManagerService {
     
 
   }
+  getemail(){
+    const jwt = this.getAccessToken();
+    if( jwt != null){
+      let jwtData = jwt.split('.')[1]
+      let decodedJwtJsonData = window.atob(jwtData)
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)  
+      return decodedJwtData.sub;
+      
+  }
+}
   getRoles(){
 
     const jwt = this.getAccessToken();
@@ -39,6 +49,7 @@ export class TokenManagerService {
       let jwtData = jwt.split('.')[1]
       let decodedJwtJsonData = window.atob(jwtData)
       let decodedJwtData = JSON.parse(decodedJwtJsonData)  
+     
       
       return decodedJwtData.roles[0];
 

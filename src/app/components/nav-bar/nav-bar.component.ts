@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
 
   @Output() eventEmitter = new EventEmitter();
 
-  constructor(private router:Router,private token:TokenManagerService) { }
+  constructor(private router:Router,private token:TokenManagerService,public authService:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -46,7 +46,7 @@ export class NavBarComponent implements OnInit {
     this.closeNavbar();
   }
   isConnet():boolean{
-    console.log(localStorage.getItem("access-token"));
+   
     return this.token.isLogged();
   }
   disconnect(){

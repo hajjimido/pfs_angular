@@ -1,0 +1,15 @@
+.div-box1
+{
+font-weight: bold;
+font-size: 18px;
+width: 450px;
+height: 210px;
+border: 1px solid #73AD21;
+background-color: red;
+}
+p {
+font-weight: 700;
+}
+input{
+    margin-top: -15px;
+}

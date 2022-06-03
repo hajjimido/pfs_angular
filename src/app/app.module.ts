@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
@@ -28,7 +28,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
 import { AdminUersComponent } from './components/admin/admin-uers/admin-uers.component';
 import { ProduitNonValideComponent } from './components/admin/produit-non-valide/produit-non-valide.component';
-
+import { ProfileComponent } from './components/profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { ProduitNonValideComponent } from './components/admin/produit-non-valide
     AdminProductComponent,
     AdminUersComponent,
     ProduitNonValideComponent,
+    ProfileComponent,
     
   ],
   imports: [
@@ -62,7 +64,8 @@ import { ProduitNonValideComponent } from './components/admin/produit-non-valide
     MatFormFieldModule,
     MatSelectModule,
     MatSidenavModule,
-    CarouselModule
+    CarouselModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
