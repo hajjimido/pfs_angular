@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { Auth} from 'src/app/Model/User';
 import { AdminService } from 'src/app/service/service.admin.service';
 
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997
 
 @Component({
   selector: 'app-admin-uers',
@@ -11,6 +15,7 @@ import { AdminService } from 'src/app/service/service.admin.service';
   styleUrls: ['./admin-uers.component.css']
 })
 export class AdminUersComponent implements OnInit {
+<<<<<<< HEAD
  Users:any[]=[];
   constructor(private adminservice:AdminService,private toast: NgToastService,) { }
 
@@ -32,4 +37,12 @@ export class AdminUersComponent implements OnInit {
       
     
   }
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997
 }

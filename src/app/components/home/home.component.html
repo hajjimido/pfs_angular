@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="my_container container-fluid d-flex p-0">
     <app-nav-bar (eventEmitter)="openFilters($event)"></app-nav-bar>
@@ -5,3 +6,89 @@
         <router-outlet></router-outlet>
     </div>      
 </div>
+=======
+<app-insidehome></app-insidehome>
+<app-categories (event)="receiveCategorie($event)"></app-categories>
+   <!-- <section  >
+        <form   #F="ngForm" (ngSubmit)="search(F.value)" >
+        <div class="row">
+          
+            <div class="col-md-6">
+                <select ngModel name="filiere" style="width: 200px;"  >
+                    <option>genie info</option>
+                    <option>genie reseau</option>
+                    <option>genie indus</option>
+                  </select>
+
+            </div>
+            <div class="col-md-6">
+                <input  ngModel name="titre" style="width: 200px; margin-left: 20px;" type="search" placeholder="Search" aria-label="Search">
+
+            </div>
+       
+       
+       
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-left:20px;" type="submit" >Search</button>
+
+        </div>
+    </div>
+</form>
+    
+    </section>
+    -->
+    <h1 style="margin-left: 20px;">categories</h1>
+    <section class="home">
+    <div class="row g-0"   *ngFor="let p of pageSlice" (click)="details(p)" style="background-color:rgb(235, 235, 235); margin-top: 10px; width: 700px; height: 200px;border-radius: 30px;-ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;">
+        
+            <div class="col-lg-5">
+                   
+                    <img style="height: 200px;" src="../../../assets/image/bg.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-7"  >
+                        <div style="margin-top: 10px;margin-left:15px;">
+                            <div style="display:flex; ">
+                        <h1 style="font-size: 35px; color: rgb(141, 202, 255);">{{p.price}} DHS</h1>
+                   <div style="margin-left: 230px;">
+                    <span class="material-icons">
+                        sentiment_very_satisfied
+                        </span>
+                </div>
+
+                    </div>
+                        <h1 style="font-size: 20px;margin-top: -15px;">{{p.titre}}</h1>
+                        
+                    </div>
+                    <div style="margin-top: 40px;" >
+                        <h1 style="margin-left: 10px;;font-size: 15px; color: rgb(193, 193, 193);">{{p.filiere}}</h1>
+                        <div style="border-bottom: 2px black solid; width: 408px;margin-top: -20px;"></div>
+                        <div style="margin-top:20px; display:flex; margin-left: 10px;">
+                            <div style="display: flex;">
+                        <span class="fa fa-map-marker"> 
+                        </span>
+                        <h4 style="margin-left: 5px;margin-top: -5px;;color: rgb(193, 193, 193);">Ensa Marrakech</h4>
+                    </div>
+                        <div style="display: flex; margin-left: 80px;margin-top: -5px;"> 
+                        <span class="material-icons">
+                            alarm
+                            </span>
+                            <h4 style="margin-left: 5px;color: rgb(193, 193, 193);">22:10</h4>
+                        </div>
+                    </div>
+  
+                    </div>
+
+                </div>
+                    
+                </div>
+            
+            </section>
+                <mat-paginator style="background-color: whitesmoke;" length="30" [pageSize]="5" [pageSizeOptions]="[0,5,10,15,20]" (page)="OnPageChange($event)" ></mat-paginator>
+            
+        
+           
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997

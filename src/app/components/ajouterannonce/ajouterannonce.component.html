@@ -1,0 +1,59 @@
+<form action="">
+  <br>
+  <br>
+  
+  <div class="form-group container">
+    <label for="filiere">Filiere:</label>
+    <select required ngModel name="filiere" #filiere="ngModel" class="form-select" aria-label="Default select example">
+      <option value="1">Genie Informatique</option>
+      <option value="2">Genie Electrique</option>
+      <option value="3">Genie Industriel</option>
+      <option value="3">Genie Resreau et Tele</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="filiere.touched && filiere.errors?.['required'] ">
+      Choisir la filiere de votre bien
+    </div>
+  </div>
+  <div class="form-group container">
+    <label for="titre">Titre du bien:</label>
+    <input required minlength="10" maxlength="30" pattern="[a-zA-Z0-9 ]*" ngModel name="titre" #titre="ngModel"  id="titre" type="text" class="form-control"/>
+    <div class="alert alert-danger" *ngIf="titre.touched &&!titre.valid">
+      <div *ngIf="titre.errors?.['required']">Entrer le Titre de votre bien</div>
+      <div *ngIf="titre.errors?.['minlength']">Longueur 10 caracteres au minimum</div>
+      <div *ngIf="titre.errors?.['maxlength']">Longueur 30 caracteres au maximum</div>
+      <div *ngIf="titre.errors?.['pattern']">les caracteres et nombres seulement</div>
+    </div>
+  </div>
+  <div class="form-group container">
+    <label for="prix">Lieu:</label>
+    <input  name="lieu"  id="lieu" type="text"  class="form-control" value="ENSA Marrakech" readonly/>
+  </div>
+  <div class="form-group container">
+    <label for="prix">Prix du bien:</label>
+    <input required  pattern="[0-9]*" ngModel name="prix" #prix="ngModel"  id="prix" type="text" class="form-control"/>
+    <div class="alert alert-danger" *ngIf="prix.touched &&!prix.valid">
+      <div *ngIf="prix.errors?.['required']">Entrer le prix de votre bien</div>
+      <div *ngIf="titre.errors?.['pattern']">les nombres seulement</div>
+    </div>
+  </div>
+  <div class="form-group container">
+    <label for="description">Description du bien:</label>
+    <textarea required minlength="20" maxlength="100" pattern="[a-zA-Z0-9 ]*" ngModel name="description" #description="ngModel" id="description" cols="30" rows="10" class="form-control"></textarea>
+    <div class="alert alert-danger" *ngIf="description.touched &&!description.valid">
+      <div *ngIf="description.errors?.['required']">Entrer la description de votre bien</div>
+      <div *ngIf="description.errors?.['minlength']">Longueur 20 caracteres au minimum</div>
+      <div *ngIf="description.errors?.['maxlength']">Longueur 100 caracteres au maximum</div>
+      <div *ngIf="description.errors?.['pattern']">les caracteres et nombres seulement</div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group container">
+   
+    <input type="file" (change)="getFile($event)" /><br>
+  </div>
+  <br>
+  <div class="form-group container">
+  <button class="btn btn-success" (click)="submitData()">Submit</button>
+  </div>
+</form>
+

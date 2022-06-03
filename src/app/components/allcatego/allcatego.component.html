@@ -1,0 +1,24 @@
+
+    <section class="container row mt-2">
+<div class="col-md-3"   *ngFor="let p of products" style=" background-color:rgb(235, 235, 235); margin-top: 10px; border-radius: 30px; margin-left: 40px;">
+            
+    <div class="row-lg-2">
+           
+            <img  src="../../../assets/image/bg.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="row-lg-1" style="margin-left:50px" >
+                <h3 id="e" style="margin-top: -5px;">{{p.titre}}</h3>
+                <h3 id="e" style="margin-top: -20px; color: rgb(255, 103, 37);">{{p.price}}</h3>
+            <div style="margin-top:-9px; border-radius: 20px; margin-left: -15px;">
+                <button  (click)="detail(p)"  style=" border-radius: 20px; background-color:rgb(255, 103, 37);border: none;color: white;">details</button>
+            </div>
+        </div>
+        </div>
+        </section>
+      
+        
+       
+       
+
+      
+

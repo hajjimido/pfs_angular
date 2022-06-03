@@ -1,0 +1,54 @@
+<section class="container-row" >
+    <div style="margin-left: -13px;width:900px;height: 200px;background-color:rgb(0, 0, 63) ;display: flex;">
+    <div style="background-color: white;width: 300px; height: 300px; margin-top: 70px; margin-left: 30px;">
+       
+        <h3 style="margin-top: 10px;margin-left:10px">add catogries</h3>
+        <div style="border: 1px black solid;" ></div>
+        <div style="margin-top: 40px;margin-left: 30px;">
+            <form #f="ngForm" (ngSubmit)="add(f.value)">
+        <label>Categorie</label><br>
+        <input style="margin-top: 15px;" placeholder="categorie">
+        <button style="margin-top: 100px;margin-left:190px;background-color: rgb(0, 0, 63); color: white;border-radius: 10px; width: 60px;height: 30px;" >
+        <div  style="display: flex; margin-left: -5px;">
+            <h3>
+                Add
+            </h3>
+            <span class="material-icons">
+                trending_flat
+                </span>
+                
+        </div>
+        </button>
+        </form>
+    </div>
+
+    </div >
+    <div style="background-color: white;width: 500px; height: 200px;  margin-top: 70px; margin-left: 50px;">
+        <h3 style="margin-top: 10px;margin-left:10px">Catogries</h3>
+        <div style="border: 1px black solid;" ></div> 
+        <table style="width: 460px; ">
+            <tr style="background-color: rgb(251, 249, 249);">
+                <td class="o">Logo</td><td>categories</td>
+            </tr>
+            <tr  *ngFor="let p of categories">
+                <td> <span  class="material-icons">
+                    satellite_alt
+                    </span></td>
+                <td>p.categorie</td>
+                <button (click)="delete(p)"  style="margin-top:13px; width:80px;height:30px;" class="btn btn-danger"  >
+                    <div style="display: flex; margin-top: -5px;margin-left: -5px; ">
+                    <h3 >delete</h3>
+                    <span class="material-icons">
+                        delete_forever
+                        </span>
+                    </div>
+                </button>
+                
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    </div>
+</section>

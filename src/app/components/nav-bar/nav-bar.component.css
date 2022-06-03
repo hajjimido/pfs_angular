@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 nav{
     position:fixed;
     left:0;
@@ -99,3 +100,16 @@ nav{
     color:var(--main-color-user);
     border-color:var(--main-color-user);
 }
+=======
+
+    li{
+        list-style: none;
+        display: inline-block;
+       margin-left: 20px;
+    }
+    a{
+        color: rgb(255, 103, 37);
+       
+    }
+
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997

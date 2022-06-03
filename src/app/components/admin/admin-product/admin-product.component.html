@@ -1,5 +1,6 @@
 <table class="table">
     <tr>
+<<<<<<< HEAD
         <th>ID</th><th>photo</th><th>Titre</th><th>Price</th><th>type</th>
     </tr>
     <tr *ngFor="let p of posts">
@@ -8,11 +9,26 @@
         <td><h1>{{p.title}}</h1></td>
         <td><h1>{{p.price}}</h1></td>
         <td><h1>{{p.type}}</h1></td>
+=======
+        <th>ID</th><th>photo</th><th>Titre</th><th>Price</th><th>filiere</th>
+    </tr>
+    <tr *ngFor="let p of products">
+        <td>{{p.id}}</td>
+        <td><img style="width: 80px;height:80px" src="../../assets/image/bg.jpg"></td>
+        <td>{{p.titre}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.filiere}}</td>
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997
 
         
     
    
+<<<<<<< HEAD
     <button  style="margin-top:5%;width: 70%;" class="btn btn-danger" (click)="delete(p.id,p.user.auth.email)" >delete</button><br>
+=======
+    <button  style="margin-top:13px;" class="btn btn-danger"  >delete</button>
+    <button style="margin-left: 10px;margin-top:13px;"class="btn btn-success"  >edit</button>
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997
 
 </tr>
 </table>

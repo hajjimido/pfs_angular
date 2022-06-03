@@ -1,0 +1,16 @@
+<form *ngIf="forme">
+<div class="products-search" style="display: flex;"  [formGroup]="forme" >
+    <span (click)="chercher()" style="color: rgb(255, 103, 37);"class="material-icons">
+        search
+        </span>
+        
+    <input 
+    formControlName="chercher"
+    type="texte"
+    placeholder="chercher"
+    name="search"
+    style="border-radius: 20px; border:none;"
+
+    >
+</div>
+</form>

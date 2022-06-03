@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   host:"http://localhost:9090"
+=======
+  
+  hostspring:"http://localhost:9090"
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997
 };
 
 /*

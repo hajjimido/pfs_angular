@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~font-awesome/css/font-awesome.min.css";
+<<<<<<< HEAD
 
 @font-face {
     font-family: "my_font_family";
@@ -51,3 +52,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     outline: none !important;
     box-shadow: none !important;
 }
+=======
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+>>>>>>> d80de9b2941f0b216d8ec6904cdd846528044997

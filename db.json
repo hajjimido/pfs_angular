@@ -18,6 +18,63 @@
       "titre": "mac",
       "price": 80,
       "filiere":"genie reseau"
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
+    },
+    {
+      "id": 1,
+      "titre": "hp",
+      "price": 80,
+      "filiere":"genie info"
+      
     }
+
   ]
 }
