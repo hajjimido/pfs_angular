@@ -74,10 +74,21 @@ export class AuthService {
         
           {
             acc:response.access_token,
+<<<<<<< HEAD
             ref:response.refresh_token,
             
           });
           console.log(response);
+=======
+            ref:response.refresh_token
+          });
+          if(authentication_type == "USER"){
+            this.router.navigate([""])
+          }
+          else{
+            this.router.navigate(["admin/dashboard"])
+          }
+>>>>>>> 686bc44256f8de3d91b9b2d056dad9f4f871f1e4
         },
       (errors)=>{
         const toast = this.toast.error(
@@ -85,6 +96,7 @@ export class AuthService {
           duration:2000});
       }
     );
+<<<<<<< HEAD
     if(authentication_type == "USER"){
       this.router.navigate([""])
     }
@@ -140,6 +152,9 @@ export class AuthService {
         )
     
 
+=======
+    
+>>>>>>> 686bc44256f8de3d91b9b2d056dad9f4f871f1e4
   }
 
   

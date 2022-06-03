@@ -7,7 +7,6 @@
 }
 .background_image{
     height: 220px;
-    background-image: url("/assets/image/admin_auth_background.svg");
     background-size:cover;
     background-position: center;
 }

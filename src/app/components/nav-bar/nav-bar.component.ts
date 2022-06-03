@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
 import { TokenManagerService } from 'src/app/service/token-manager.service';
 
 
@@ -46,7 +45,10 @@ export class NavBarComponent implements OnInit {
     this.closeNavbar();
   }
   isConnet():boolean{
+<<<<<<< HEAD
    
+=======
+>>>>>>> 686bc44256f8de3d91b9b2d056dad9f4f871f1e4
     return this.token.isLogged();
   }
   disconnect(){

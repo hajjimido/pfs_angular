@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ignoreElements } from 'rxjs';
 import { TokenManagerService } from 'src/app/service/token-manager.service';
 
 @Component({

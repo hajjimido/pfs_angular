@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostService } from 'src/app/service/post.service';
-import { PostsComponent } from '../posts/posts.component';
 
 @Component({
   selector: 'app-main-page',
