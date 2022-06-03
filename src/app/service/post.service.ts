@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { typeofExpr } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
@@ -26,7 +24,7 @@ export class PostService {
     let validForm = true;
     const thereIsAnemptyField = data.get("type")==""||data.get("title")==""
                       ||data.get("title")==""||data.get("description")==""||
-                        data.get("file")=="";
+                        data.getAll("files").length == 0;
 
     if(thereIsAnemptyField){
       validForm = false;
@@ -42,21 +40,10 @@ export class PostService {
         validForm = false;
         this.toast.error(
           {
-            detail:"The price must be a type number",
+            detail:"The price must be a positive number",
             duration:2000
         });
       }
-      else {
-        const file:any = data.get("file");
-        if(new RegExp("/.(png)|(jpg)|(JPG)|(PNG)$").test(file.name) == false){
-          validForm = false;
-          this.toast.error(
-            {
-              detail:"The image must be type jpg or png",
-              duration:2000
-          });
-        }
-       }
     }
     if(validForm == true){
       this.http.post(`${this.basic_url}/post/add`,data,
@@ -85,13 +72,12 @@ export class PostService {
               duration:2000
           });
         }
-      )
-    }
-    
+    )
+  }
+  
   }
   
   getAllPosts(){
-    console.log(this.branch+"-"+this.type);
     return this.http.get(
       `${this.basic_url}/post/all?page=1&branch=${this.branch}&type=${this.type}`
     );

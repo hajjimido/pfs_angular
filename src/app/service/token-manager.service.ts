@@ -23,15 +23,12 @@ export class TokenManagerService {
   }
   
   isLogged():boolean{
-   
     if(this.getAccessToken()==null){
       return true;
     }
     return false;
-
-    
-
   }
+
   getRoles(){
 
     const jwt = this.getAccessToken();

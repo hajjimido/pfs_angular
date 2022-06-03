@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -21,7 +21,6 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { DetailComponent } from './components/detail/detail.component';
 import { SwiperDetailComponent } from './components/swiper-detail/swiper-detail.component'
 import { AdminDashComponent } from './components/admin/admin-dash/admin-dash.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
@@ -42,7 +41,6 @@ import { ProduitNonValideComponent } from './components/admin/produit-non-valide
     PostComponent,
     AddPostComponent,
     MainPageComponent,
-    DetailComponent,
     SwiperDetailComponent,
     AdminDashComponent,
     AdminHomeComponent,

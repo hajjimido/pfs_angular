@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
-import { Product } from 'src/app/Model/product';
-import { Productservice } from 'src/app/service/product.service';
 import { AdminService } from 'src/app/service/service.admin.service';
 
 @Component({

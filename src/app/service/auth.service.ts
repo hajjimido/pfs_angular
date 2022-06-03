@@ -72,7 +72,13 @@ export class AuthService {
           {
             acc:response.access_token,
             ref:response.refresh_token
-          })
+          });
+          if(authentication_type == "USER"){
+            this.router.navigate([""])
+          }
+          else{
+            this.router.navigate(["admin/dashboard"])
+          }
         },
       (errors)=>{
         const toast = this.toast.error(
@@ -80,9 +86,7 @@ export class AuthService {
           duration:2000});
       }
     );
-    if(authentication_type == "USER"){
-      this.router.navigate([""])
-    }
+    
   }
 
   

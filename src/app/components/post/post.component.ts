@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/Model/product';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post',
@@ -10,12 +10,14 @@ import { Product } from 'src/app/Model/product';
 export class PostComponent implements OnInit {
 
   @Input() post:any;
+  public principleImageUrl : string;
+  basic_url:string = environment.host;
+
   constructor(private route:Router) { }
-
-
 
   ngOnInit(): void {
     this.calculateData(this.post.creationDate);
+    this.principleImageUrl = this.basic_url+"/post/"+this.post.images[0].imageUrl;
   }
 
   calculateData(date:string){
