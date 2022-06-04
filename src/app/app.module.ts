@@ -6,13 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
-<<<<<<< HEAD
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-=======
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
->>>>>>> 686bc44256f8de3d91b9b2d056dad9f4f871f1e4
+
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';

@@ -37,16 +37,13 @@ const routes: Routes = [
         component:MainPageComponent
       },
       {
-<<<<<<< HEAD
         path:"profile",
         component:ProfileComponent
       },
-      {
+     /* {
         path:"detail",
-        component:DetailComponent
-      },{
-=======
->>>>>>> 686bc44256f8de3d91b9b2d056dad9f4f871f1e4
+        component:
+      }*/{
         path:"post",
         children:[
           {

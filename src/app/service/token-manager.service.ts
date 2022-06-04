@@ -28,7 +28,6 @@ export class TokenManagerService {
     }
     return false;
   }
-<<<<<<< HEAD
   getemail(){
     const jwt = this.getAccessToken();
     if( jwt != null){
@@ -39,9 +38,6 @@ export class TokenManagerService {
       
   }
 }
-=======
-
->>>>>>> 686bc44256f8de3d91b9b2d056dad9f4f871f1e4
   getRoles(){
 
     const jwt = this.getAccessToken();
