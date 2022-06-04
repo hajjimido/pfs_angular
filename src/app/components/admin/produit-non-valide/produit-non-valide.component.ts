@@ -24,17 +24,18 @@ export class ProduitNonValideComponent implements OnInit {
     );
    
   }
-  delete(id:any,email:any){
+  delete(id:any){
     const toast = this.toast.success(
       {detail: "en cours",
       duration:2000});
-    this.adminservice.deleteProduct(id,email);
+    this.adminservice.deleteProduct(id);
   }
-  valide(p:any){
+  valide(id:any){
+ 
     const toast = this.toast.success(
       {detail: "en cours",
       duration:2000});
-      this.adminservice.valide(p);
+      this.adminservice.valide(id);
   }
 
 }

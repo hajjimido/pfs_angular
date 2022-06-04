@@ -12,9 +12,9 @@ export class AdminProductComponent implements OnInit {
   constructor(private adminservice:AdminService,private toast: NgToastService) { }
 
   ngOnInit(): void {
-    this.adminservice.getAllproduit().subscribe(
+    this.adminservice.getAllPosts().subscribe(
       (data:any)=>{
-        this.posts = data.content;
+        this.posts = data;
         console.log(this.posts)     
       },
       (error)=>{
@@ -23,11 +23,12 @@ export class AdminProductComponent implements OnInit {
     );
    
   }
-  delete(id:any,email:any){
+  delete(id:any){
     const toast = this.toast.success(
       {detail: "en cours",
       duration:2000});
-    this.adminservice.deleteProduct(id,email);
+      
+    this.adminservice.deleteProduct(id);
   }
 
 }

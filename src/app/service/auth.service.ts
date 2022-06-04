@@ -7,6 +7,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginResponce } from '../Model/loginResponse';
+import { Auth } from '../Model/User';
 import { TokenManagerService } from './token-manager.service';
 
 @Injectable({
@@ -103,15 +104,15 @@ export class AuthService {
 
 
   }
-  getUser(email:any):Observable<Object>{
-   return this.http.get<Object>(this.basic_url+"/user/"+email);
+  getUser(email:any):Observable<Auth>{
+   return this.http.get<Auth>(this.basic_url+"/user/"+email);
 
   }
-  editProfile(myForm:NgForm,id:any){
+  editProfile(myForm:any,id:any){
     
     const {
       fullName,
-      email,
+      
       phone,
       branch,
       
@@ -121,9 +122,7 @@ export class AuthService {
       fullName,
         phone,
         branch,
-        auth:{
-          email,
-        }
+        
       }
       console.log(data);
         this.http.put(`${this.basic_url}/editProfile`,data,{responseType:"text"}).subscribe(

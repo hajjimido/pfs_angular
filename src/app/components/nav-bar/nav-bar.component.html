@@ -43,17 +43,13 @@
     <label for="nav_input_button" id="nav_button_label" class="d-block d-lg-none me-3"></label>
 
     <div id="secondary_nav_bar" class="d-flex d-lg-none flex-column align-items-center">
-      <button class="btn btn-primary py-2 my_button align_center align-self-stretch no_border_radius " (click)="navigateToHomePage()">   
+      <button class="btn btn-primary bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToHomePage()">   
         <mat-icon aria-hidden="false">home</mat-icon>
         <div class="ms-3">Home</div>
       </button>
-      <button *ngIf="isConnet()"class="btn bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
+      <button class="btn btn-primary py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
         <mat-icon aria-hidden="false">account_circle</mat-icon>
         <div class="ms-3">Login</div>
-      </button>
-      <button *ngIf="!isConnet()"class="btn bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
-        <mat-icon aria-hidden="false">account_circle</mat-icon>
-        <div class="ms-3">Profile</div>
       </button>
       <button class="btn btn-success py-2 mb-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToAddPostPage()">   
         <mat-icon aria-hidden="false">add</mat-icon>

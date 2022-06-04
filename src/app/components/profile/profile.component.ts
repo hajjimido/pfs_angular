@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { TokenManagerService } from 'src/app/service/token-manager.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Auth } from 'src/app/Model/User';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,7 +12,7 @@ export class ProfileComponent implements OnInit {
   forme?:FormGroup
   constructor(private tokenManager:TokenManagerService,private authservice:AuthService,
     private fb:FormBuilder) { }
-  user:any
+  user:Auth
  
 
   ngOnInit(): void {
@@ -19,16 +20,19 @@ export class ProfileComponent implements OnInit {
     
     this.authservice.getUser(this.tokenManager.getemail()).subscribe(data=>{
       this.user=data;
+      this.forme=this.fb.group({
+        fullName:[this.user.fullName,Validators.required],
+        phone:[this.user.phone,Validators.required],
+        branch:[this.user.branch,Validators.required]
+      })
       
     });
-    this.forme=this.fb.group({
-      fullName:["",Validators.required],
-      phone:["",Validators.required],
-      branch:["",Validators.required]
-    })
+    
+   
   }
-  edit(f:NgForm){
+  edit(f:any){
     this.authservice.editProfile(f,this.user.id)
+    location.reload();
    
   }
 

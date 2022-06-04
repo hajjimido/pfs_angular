@@ -1,9 +1,13 @@
 export interface Auth{
-    /*
-    email:string;
-    myuser:{
-        fullName:string;
-        id:Number;
-        phone:string};*/
-
+    
+    id:Number;
+    fullName:string;
+    branch:string;
+        
+    phone:string;
+    auth:{
+        email:String;
+    }
 }
+
+

@@ -24,8 +24,8 @@ export class MainPageComponent implements OnInit {
   fetchPosts(){
     this.postService.getAllPosts().subscribe(
       (data:any)=>{
-        this.posts = data.content;
-        console.log(this.posts)     
+        this.posts = data;
+        console.log(data)     
       },
       (error)=>{
         this.posts = [];

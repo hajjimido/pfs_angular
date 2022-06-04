@@ -13,6 +13,7 @@ import { TokenManagerService } from './token-manager.service';
   providedIn: 'root'
 })
 export class AdminService {
+ 
 
   
   basic_url:string = environment.host;
@@ -46,17 +47,17 @@ export class AdminService {
             
          )
       }
-      getAllproduit(){
+      getAllPosts(){
         return this.http.get(
-          `${this.basic_url}/post/all?page=1&branch=all&type=all`
+          `${this.basic_url}/post/all?page=1&branch=${this.branch}&type=${this.type}`
         );
       }
 
 
-    deleteProduct(id:any,email:any){
+    deleteProduct(id:any){
       
        
-         this.http.delete(`${this.basic_url}`+"/deletProduct/"+email+"/"+id,{responseType:"text"}).subscribe((res)=>{
+         this.http.delete(`${this.basic_url}`+"/deletProduct/"+id,{responseType:"text"}).subscribe((res)=>{
           const toast = this.toast.success(
             {detail: res.toString(),
             duration:2000});
@@ -74,8 +75,8 @@ export class AdminService {
       getAllproduitNotValid():Observable<Object[]>{
         return this.http.get<Object[]>(this.basic_url+"/poductnotactive");
       }
-      valide(p:any){
-        return this.http.put(this.basic_url+"/valide"+p.id,p.user.auth.email,{responseType:"text"}).subscribe((res)=>{
+      valide(id:any){
+        return this.http.put(this.basic_url+"/valide/"+id,[],{responseType:"text"}).subscribe((res)=>{
           const toast = this.toast.success(
             {detail: res.toString(),
             duration:2000});
