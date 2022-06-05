@@ -1,0 +1,90 @@
+<div class="my_container content d-flex flex-column align-items-center">
+    <div class="post_container d-flex flex-column col-11 col-lg-10 col-md-10 mt-5">
+       <div class="images_container">
+            <div *ngIf="nbr_of_images>0" class="arrow arrow_back" (click)="return()">
+                <mat-icon>arrow_back</mat-icon>
+            </div>
+            <div *ngIf="nbr_of_images>0" class="arrow arrow_forward" (click)="next()">
+                <mat-icon>arrow_forward</mat-icon>
+            </div>
+            <img *ngFor="let image of post?.images;let i=index" class="post_image smooth_transition" [ngClass]="{'to_the_right': i !=0}"
+            src="{{basic_link+'/post/image/'+image.imageUrl}}"
+            >
+            <!-- <img class="post_image smooth_transition" src="../../../assets/image/auth_background_image.svg">
+            <img class="post_image to_the_right smooth_transition" src="../../../assets/image/auth_decoration_image.svg">
+            <img class="post_image to_the_right smooth_transition" src="../../../assets/image/admin_auth_background.svg"> -->
+        </div> 
+        <div class="ps-4 py-3 bottom_borders">
+            <h2 class="text-primary m-0">
+                {{post?.price+"DH"}}
+            </h2>
+            <h2 class="text-dark m-0">
+                {{post?.title}}
+            </h2>
+            <div class="d-flex mt-2">
+                <mat-icon class="me-1">where_to_vote</mat-icon>
+                Ensa
+                <mat-icon class="ms-3 me-1">schedule</mat-icon>
+                19:45
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-around bottom_borders align-items-center py-2">
+            <h3 class="m-0" style="font-weight: bold;">Type</h3>
+            <h3 class="m-0" style="font-weight: bold;">{{post?.type}}</h3>
+        </div>
+
+        <div class="ps-3 pe-5 mt-2">
+            <h2 class="m-0">Description</h2>
+            <p>
+               {{post?.description}}
+            </p>
+        </div>
+    </div>
+    <div class="user_info col-11 col-lg-10 col-md-10 mt-3 px-3 py-2 my-5
+    d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="user_image_container me-3">
+                <img  class="user_image" src="../../../assets/image/admin.png" />  
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+                <h2 class="m-0">{{post?.user.fullName}}</h2>
+                <h3 class="m-0">Branch : {{post?.user.branch}}</h3>
+            </div>
+            
+        </div>
+
+        <button class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#exampleModal">
+            <mat-icon>visibility</mat-icon>
+            <div class="ms-2">Show phone number</div>
+        </button>
+    </div>
+   
+</div>
+  
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="d-flex justify-content-end p-2">
+            <button type="button"  data-bs-dismiss="modal" class="border-0 bg-white ">
+                <mat-icon class="text-danger">cancel</mat-icon>
+            </button>
+        </div>
+        <div class="modal-body d-flex flex-column align-items-center" >
+            <img src="../../../assets/image/scammer.PNG" height="200px">
+            <p class="mt-3" style="font-size:16px;text-align: center;">
+                You should never send money in advance to the seller by bank transfer or through a money transfer agency when purchasing goods available on the site.
+            </p>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <div class="border border-2  border-primary rounded
+            d-flex align-items-center px-4">
+               <mat-icon class="text-primary me-2">call</mat-icon> 
+               <h2 class="m-0 text-primary">{{post?.user.phone}}</h2>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

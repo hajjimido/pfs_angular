@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -40,8 +41,13 @@ const routes: Routes = [
         children:[
           {
             path:"add",
-            component:AddPostComponent
+            component:AddPostComponent,
+            canActivate:[AuthGuard]
           },
+          {
+            path:":postSlug",
+            component:PostDetailsComponent  
+          }
           
         ]
       }

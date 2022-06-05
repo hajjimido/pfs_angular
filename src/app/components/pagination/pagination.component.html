@@ -1,0 +1,17 @@
+<div id="pagination_container" class="d-flex align-items-center mt-40">
+    <div class="me-3 text-primary arrow" (click)="previousPage()">
+        <mat-icon>arrow_back</mat-icon>
+    </div>
+    <div *ngFor="let index of pages"
+    (click)="switchPage($event.target,index)">
+        <div *ngIf="index==current_page" id="pagination_element_{{index}}" class="pagination_element selected">
+            {{index}}
+        </div>
+        <div *ngIf="index!=current_page" id="pagination_element_{{index}}" class="pagination_element">
+            {{index}}
+        </div>
+    </div>
+    <div class="text-primary arrow" (click)="nextPage()">
+        <mat-icon>arrow_forward</mat-icon>
+    </div>
+</div>

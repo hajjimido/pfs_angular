@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
 import { PostService } from 'src/app/service/post.service';
 
 @Component({
@@ -9,30 +10,17 @@ import { PostService } from 'src/app/service/post.service';
 export class MainPageComponent implements OnInit {
 
   public showFilter:boolean = true;
-  public posts:any;
+  public searchEvent: Subject<void> = new Subject<void>();
 
   constructor(private postService:PostService) { }
 
   ngOnInit(): void {
-    this.fetchPosts();
   }
   
   submitFilters(){
-    this.fetchPosts();
+    this.searchEvent.next();
   }
-
-  fetchPosts(){
-    this.postService.getAllPosts().subscribe(
-      (data:any)=>{
-        this.posts = data.content;
-        console.log(this.posts)     
-      },
-      (error)=>{
-        this.posts = [];
-      }
-    );
-  }
-  
+ 
   resetFilters(){
     this.postService.resetFilters();
   }

@@ -23,22 +23,24 @@ export class TokenManagerService {
   }
   
   isLogged():boolean{
-    if(this.getAccessToken()==null){
+    if(this.getRoles() != null){
       return true;
     }
     return false;
   }
 
   getRoles(){
-
+    const availableRoles = ["USER","ADMIN"];
     const jwt = this.getAccessToken();
     if( jwt != null){
       let jwtData = jwt.split('.')[1]
       let decodedJwtJsonData = window.atob(jwtData)
-      let decodedJwtData = JSON.parse(decodedJwtJsonData)  
-      
-      return decodedJwtData.roles[0];
-
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)     
+      let role = decodedJwtData.roles[0];
+      if(availableRoles.includes(role)){
+        return role;
+      }
     }
+    return null;
   }
 }

@@ -1,3 +1,22 @@
 #content{
-    background-color: rgb(245,245,245) !important;
+    position: relative;
+    display: flex;
+    height: fit-content !important;
+    flex: 1;
+}
+
+.pagination{
+    height: 80px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.no_result{
+    position:absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-decoration: underline;
+    color:gray;
 }

@@ -12,7 +12,7 @@
                 {{post.price+" DH"}}
             </div>
             
-            <button class="show_details btn btn-primary d-flex">
+            <button class="show_details btn btn-primary d-flex" (click)="moveToPostPage(post.slug)">
                 <mat-icon>visibility</mat-icon>
                 <div class="ms-2" >Show details</div>
             </button>

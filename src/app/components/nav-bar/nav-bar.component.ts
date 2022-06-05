@@ -12,10 +12,11 @@ export class NavBarComponent implements OnInit {
 
 
   @Output() eventEmitter = new EventEmitter();
-
+  public isConnected :boolean;
   constructor(private router:Router,private token:TokenManagerService) { }
 
   ngOnInit(): void {
+    this.isConnected = this.token.isLogged();
   }
 
   openFilters(){
@@ -44,9 +45,7 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(["post/add"]);
     this.closeNavbar();
   }
-  isConnet():boolean{
-    return this.token.isLogged();
-  }
+  
   disconnect(){
   
      return this.token.disconnect();

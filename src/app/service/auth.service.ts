@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
-import { EmailValidator, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';

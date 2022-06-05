@@ -16,13 +16,12 @@
         <h1 class="my_font_family ">ADD POST</h1>
       </div>
 
-      <div *ngIf="isConnet()" class="nav-element login me-4"
+      <div *ngIf="!isConnected" class="nav-element login me-4"
         (click)="navigateToLoginPage()">
         <mat-icon>account_circle</mat-icon>
         <h1 class="my_font_family">LOGIN</h1>
       </div>
-      <div *ngIf="!isConnet()" class="nav-element login me-4"
-      (click)="disconnect()">
+      <div *ngIf="isConnected" class="nav-element login me-4">
         <mat-icon>account_circle</mat-icon>
         <h1 class="my_font_family">PROFILE</h1>
      </div>
@@ -37,11 +36,11 @@
         <mat-icon aria-hidden="false">home</mat-icon>
         <div class="ms-3">Home</div>
       </button>
-      <button *ngIf="isConnet()"class="btn bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
+      <button *ngIf="!isConnected"class="btn bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
         <mat-icon aria-hidden="false">account_circle</mat-icon>
         <div class="ms-3">Login</div>
       </button>
-      <button *ngIf="!isConnet()"class="btn bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
+      <button *ngIf="isConnected"class="btn bg-primary-user py-2 my-1 my_button align_center align-self-stretch no_border_radius" (click)="navigateToLoginPage()">   
         <mat-icon aria-hidden="false">account_circle</mat-icon>
         <div class="ms-3">Profile</div>
       </button>

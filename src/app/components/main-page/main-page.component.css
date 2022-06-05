@@ -7,11 +7,12 @@
     height: 1.5px;
     background-color: rgba(128, 128, 128, 0.205);;
 }
+
 .filters{
     position: fixed;
     height: 100%;
-    margin-top: var(--nav-bar-height);
     z-index: 2;
+    margin-top: var(--nav-bar-height);
     background-color: white;
     color:black;
     border-top: 2px solid rgba(128, 128, 128, 0.205);

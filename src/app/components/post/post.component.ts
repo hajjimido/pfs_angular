@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.calculateData(this.post.creationDate);
-    this.principleImageUrl = this.basic_url+"/post/"+this.post.images[0].imageUrl;
+    this.principleImageUrl = this.basic_url+"/post/image/"+this.post.images[0].imageUrl;
   }
 
   calculateData(date:string){
@@ -26,6 +26,10 @@ export class PostComponent implements OnInit {
   }
   route_ver_detail(id:any){
     this.route.navigateByUrl("/detail")
+  }
+
+  moveToPostPage(postSlug:string){
+    this.route.navigate(["/post",this.post.slug]);
   }
 
 }

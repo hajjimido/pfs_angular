@@ -1,0 +1,41 @@
+
+.pagination_element{
+    position:relative;
+    z-index: 5;
+    height: 40px;
+    width: 40px;
+    margin-right:15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color:var(--color-primary-bootstrap);
+    background-color: transparent !important;
+    border-radius: 5px;
+    border:solid 2px var(--color-primary-bootstrap);
+    cursor:pointer;
+}
+.pagination_element::before{
+    content:"";
+    position: absolute;
+    inset: 2px;
+    border-radius: 5px;
+    z-index: -1;
+    background-color:var(--color-primary-bootstrap);
+    transform: scale(0);
+}
+.selected{
+    color:white !important;
+}
+.selected::before{
+    animation: pagination 0.2s forwards;
+}
+.arrow{
+    cursor:pointer;
+}
+
+@keyframes pagination {
+    to{
+        transform: scale(1);
+    }
+}

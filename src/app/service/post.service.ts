@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AnyForUntypedForms } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
@@ -13,7 +14,8 @@ export class PostService {
   public branch = "all";
   public type = "all";
   basic_url:string = environment.host;
-  
+  public current_pages :number = 1;
+
   constructor(private http:HttpClient,
              private toast:NgToastService,
              private router:Router,
@@ -76,16 +78,19 @@ export class PostService {
   }
   
   }
-  
   getAllPosts(){
     return this.http.get(
-      `${this.basic_url}/post/all?page=1&branch=${this.branch}&type=${this.type}`
+      `${this.basic_url}/post/all?page=${this.current_pages}&branch=${this.branch}&type=${this.type}`
     );
   }
 
+  getPostBySlug(slug:string){
+    return this.http.get(`${this.basic_url}/post/${slug}`);
+  }
   resetFilters(){
     this.type = "all";
     this.branch = "all";
   }
+
 
 }

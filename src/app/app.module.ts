@@ -27,6 +27,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
 import { AdminUersComponent } from './components/admin/admin-uers/admin-uers.component';
 import { ProduitNonValideComponent } from './components/admin/produit-non-valide/produit-non-valide.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ProduitNonValideComponent } from './components/admin/produit-non-valide
     AdminProductComponent,
     AdminUersComponent,
     ProduitNonValideComponent,
+    PaginationComponent,
+    PostDetailsComponent,
     
   ],
   imports: [
