@@ -3,14 +3,18 @@ import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginResponce } from '../Model/loginResponse';
+import { Auth } from '../Model/User';
 import { TokenManagerService } from './token-manager.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  userEroor:boolean=true;
+  phoneError:boolean=true;
 
   basic_url:string = environment.host;
 
@@ -87,6 +91,87 @@ export class AuthService {
     );
     
   }
+  editProfile(myForm:any,id:any){
+    
+    const {
+      fullName,
+      
+      phone,
+      branch,
+      
+    } = myForm.value;
+    const data={
+      id,
+      fullName,
+        phone,
+        branch,
+        
+      }
+      console.log(data);
+        this.http.put(`${this.basic_url}/editProfile`,data,{responseType:"text"}).subscribe(
+          (result)=>{
+            this.userEroor=true;
+            this.phoneError=true;
+             const toast = this.toast.success(
+              {detail: result.toString(),
+              duration:2000});
+          location.reload();
+          },
+          (errors)=>{
+            
+            if(errors.error=="This username is already used"){
+              this.userEroor=false
+            }
+            else if(errors.error=="Invalid phone number format"){
+              this.phoneError=false
+
+            }
+            else {
+              
+                const toast = this.toast.error(
+                  {detail: errors.error,
+                  duration:2000});
+              
+              
+            }
+            
+           
+          },
+
+        )
+    
+
+  }
+  getUser(email:any):Observable<Auth>{
+    return this.http.get<Auth>(this.basic_url+"/user/"+email);
+ 
+   }
+   getMyProduitNonValide(email:any):Observable<Object[]>{
+    return this.http.get<Object[]>(this.basic_url+"/NonValidProductUser/"+email);
+
+  }
+  getMyProduitValide(email:any):Observable<Object[]>{
+    return this.http.get<Object[]>(this.basic_url+"/ValidProductUser/"+email);
+
+  }
+  deleteProduct(id:any){
+      
+       
+    this.http.delete(`${this.basic_url}`+"/deletUserProduct/"+id,{responseType:"text"}).subscribe((res)=>{
+     const toast = this.toast.success(
+       {detail: res.toString(),
+       duration:2000});
+       location.reload();},
+       
+
+       (error)=>{
+         const toast = this.toast.error(
+           {detail: error.error,
+           duration:2000});}
+       
+       
+    )
+ }
 
   
 

@@ -29,7 +29,13 @@ import { AdminUersComponent } from './components/admin/admin-uers/admin-uers.com
 import { ProduitNonValideComponent } from './components/admin/produit-non-valide/produit-non-valide.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
-
+import { NavProfilMESANNONCESComponent } from './components/nav-profil-mesannonces/nav-profil-mesannonces.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { MesAnnoncesComponent } from './components/Mat/mes-annonces/mes-annonces.component';
+import { ValidComponent } from './components/Mat/valid/valid.component';
+import { NonValidComponent } from './components/Mat/non-valid/non-valid.component';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +57,11 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
     ProduitNonValideComponent,
     PaginationComponent,
     PostDetailsComponent,
+    NavProfilMESANNONCESComponent,
+    ProfileComponent,
+    MesAnnoncesComponent,
+    ValidComponent,
+    NonValidComponent,
     
   ],
   imports: [
@@ -64,7 +75,9 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
     MatFormFieldModule,
     MatSelectModule,
     MatSidenavModule,
-    CarouselModule
+    CarouselModule,
+    ReactiveFormsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

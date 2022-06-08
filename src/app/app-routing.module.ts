@@ -10,7 +10,10 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { MesAnnoncesComponent } from './components/Mat/mes-annonces/mes-annonces.component';
+import { NavProfilMESANNONCESComponent } from './components/nav-profil-mesannonces/nav-profil-mesannonces.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -35,6 +38,23 @@ const routes: Routes = [
       {
         path:"",
         component:MainPageComponent
+      },
+      {
+        path:"moi",
+        component:NavProfilMESANNONCESComponent,
+        children:[
+          {
+            path:"profile",
+            component:ProfileComponent,
+            canActivate:[AuthGuard]
+          },
+          {
+            path:"mesAnnonces",
+            component:MesAnnoncesComponent,
+            canActivate:[AuthGuard]
+          },
+
+        ]
       },
       {
         path:"post",

@@ -1,0 +1,118 @@
+.div-box1
+{
+font-weight: bold;
+font-size: 18px;
+width: 450px;
+height: 210px;
+border: 1px solid #73AD21;
+background-color: red;
+}
+p {
+font-weight: 700;
+}
+input{
+    margin-top: -10px;
+    
+}
+
+#true{
+    margin-top: -10px;
+
+
+}
+
+
+.bar {
+    width: 15rem;
+    padding: 2px;
+    margin: 2px;
+    color: #333;
+    background: #fafafa;
+    border: 1px solid #ccc;
+  }
+
+    
+    .error {
+        color: #ba3939;
+        background: #ffe0e0;
+        border: 1px solid #a33a3a;
+      }
+  
+.modifier {
+    margin-left: 30%;
+    display: inline-block;
+    background-color: rgb(38, 38, 255);
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    
+    
+    padding: 5px;
+    
+    transition: all 0.5s;
+    cursor: pointer;
+    
+  }
+  .modifier span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .modifier span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .modifier:hover {
+    background-color: rgb(1, 1, 155);
+  }
+  .modifier:hover span {
+    padding-right: 25px;
+  }
+  .modifier:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+#true:current{
+    border:none;
+   
+   }
+
+#false{
+    border: solid 1px;
+    height:30px;
+}
+.card{
+   margin-top: 10%;
+}
+
+@media screen and (max-width:680px) {
+    #select{
+        margin-top:1%;
+        margin-left: 10%;
+        
+    
+    }
+    .modifier {
+        margin-left: 10%;
+        } 
+    select{
+        width: 15rem;
+    }
+    .card{
+        margin-top: 20%;
+     }
+     #img{
+         margin-left: 1%;
+     }
+     #form{
+        margin-left: 10%;
+     }
+
+}
+

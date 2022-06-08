@@ -1,0 +1,45 @@
+<div  *ngIf="user" class="card" >
+    <p class="card-header">Informations Personnelles
+      <button class="modifier" (click)="modif()" ><span>modifier profile</span></button>
+    </p>
+    <div class="card-body" *ngIf="forme">
+        <form  [formGroup]="forme"class="row g-3"    [noValidate]="false">
+            <div  id="img" class="col-auto text-center"style="width: 20rem;" >
+              <img src="../../../assets/image/admin.png" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{user.fullName}}</h5>
+            <p class="text-muted mb-1">Client Ensa Ecommerce</p>
+            <p class="text-muted mb-4">Ensa Marrakech</p>
+        
+            </div>
+            <div id="form" class="col-auto" style="width: 20rem;">
+      <p  class="card-text" >FullName</p>
+      <div id="true"  *ngIf="this.mod"    >{{user.fullName}}</div>
+      <input id="false"  *ngIf="!this.mod" name="fullName"  class="form-control-plaintext" style="width: 15rem;"  formControlName="fullName" >
+      <div *ngIf="!this.authservice.userEroor" class="bar error">Username already used</div>
+      <p class="card-text" >Email</p>
+      <div id="true"     >{{user.auth.email}}</div>
+      <p class="card-text">Phone Number</p>
+      <div id="true"  *ngIf="this.mod"  >{{user.phone}}</div>
+      <input id="false"  name="phone" *ngIf="!this.mod" type="text" class="form-control-plaintext"    style="width: 15rem;"  formControlName="phone" >
+      <div *ngIf="!this.authservice.phoneError" class="bar error">phone invalide</div>
+    </div>
+      <div id="select" class="col-auto" style="width: 20rem;">
+      <p class="card-text">Branche</p>
+      <div id="true"  *ngIf="this.mod"    >{{user.branch}}</div>
+      <select id="false"  *ngIf="!this.mod"  name="branch" class="form-control-plaintext "  formControlName="branch" >   
+        
+        <option value="gi" class="branch_option">GI</option>
+        <option value="ge" class="branch_option">GE</option>
+        <option value="grt" class="branch_option">GRT</option>
+        <option value="gil" class="branch_option">GLM</option>
+        <option value="cp" class="branch_option">CP</option>
+      </select>
+      <button *ngIf="!this.mod" id="enregistrer" type="submit" (click)="edit(forme)" class="btn btn-primary" style="margin-top: 15%;" >Enregistrer</button>
+     
+    </div>
+        
+    </form>
+    </div>
+  </div>
+
