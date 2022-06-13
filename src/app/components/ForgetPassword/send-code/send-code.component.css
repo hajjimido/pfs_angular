@@ -1,0 +1,23 @@
+
+.my_container{
+    background-image:url("/assets/image/auth_background_image.svg");
+    background-position: center;
+    background-size: cover;
+}
+
+@keyframes my_animation{
+    to{
+        opacity: 1;
+        top:0
+    }
+}
+.btn-login {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #009A9C;
+    border: none;
+  }
+  
+  .btn-login:hover {
+    background-color: #009A9C;
+  }

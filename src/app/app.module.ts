@@ -36,6 +36,9 @@ import { MesAnnoncesComponent } from './components/Mat/mes-annonces/mes-annonces
 import { ValidComponent } from './components/Mat/valid/valid.component';
 import { NonValidComponent } from './components/Mat/non-valid/non-valid.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { NewCodeComponent } from './components/ForgetPassword/new-code/new-code.component';
+import { SendCodeComponent } from './components/ForgetPassword/send-code/send-code.component';
+import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/verify-code.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +65,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MesAnnoncesComponent,
     ValidComponent,
     NonValidComponent,
+    SendCodeComponent,
+    VerifyCodeComponent,
+    NewCodeComponent,
     
   ],
   imports: [

@@ -15,6 +15,9 @@ import { NavProfilMESANNONCESComponent } from './components/nav-profil-mesannonc
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NewCodeComponent } from './components/ForgetPassword/new-code/new-code.component';
+import { SendCodeComponent } from './components/ForgetPassword/send-code/send-code.component';
+import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/verify-code.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -23,6 +26,14 @@ const routes: Routes = [
     children:[
       {path:"login",component:LoginComponent,
         data:{title:"Login"}},
+        {path:"fogetPassword",children:[
+          {path:"sendCode",component:SendCodeComponent
+          },
+          {path:"verifyCode/:username",component:VerifyCodeComponent
+          },
+          {path:"newCode/:username",component:NewCodeComponent
+          }
+        ]},
       {path:"register",component:RegisterComponent,
         data:{title:"Register"}},
       {path:"admin",component:LoginAdminComponent,

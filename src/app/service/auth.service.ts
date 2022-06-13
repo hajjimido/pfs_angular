@@ -21,7 +21,7 @@ export class AuthService {
   constructor(private http :HttpClient,
      private toast: NgToastService,
      private router:Router,
-     private tokenManager:TokenManagerService) { }
+     private tokenManager:TokenManagerService,private route:Router) { }
 
   public register(myForm : NgForm){
       const {
@@ -171,6 +171,44 @@ export class AuthService {
        
        
     )
+ }
+ sendMailToClient(username:any){
+
+  this.http.post(`${this.basic_url}`+"/forgetPassword/"+username,[],{responseType:'text'}).subscribe(
+   (res)=>{const toast = this.toast.success(
+    {detail: res.toString(),
+    duration:2000});
+   
+   this.route.navigateByUrl("/auth/fogetPassword/verifyCode/"+username)},
+   (error)=>{const toast = this.toast.error(
+    {detail: error.error,
+    duration:2000});})
+ }
+ VerificationCode(username:any,code:any){
+   this.http.post(`${this.basic_url}`+"/forgetPassword/checkToken/"+username+"/"+code,[],{responseType:'text'}).subscribe(
+   (res)=>{const toast = this.toast.success(
+    {detail: res.toString(),
+    duration:2000});
+   this.route.navigateByUrl("/auth/fogetPassword/newCode/"+username)},
+   (error)=>{const toast = this.toast.error(
+    {detail: error.error,
+    duration:2000});})
+ }
+ newCode(username:any,password:any){
+   
+   const data={
+    password:String
+   }
+   data.password=password
+   this.http.post(`${this.basic_url}`+"/forgetPassword/newPassword/"+username,data,{responseType:'text'}).subscribe(
+   (res)=>{const toast = this.toast.success(
+    {detail: res.toString(),
+    duration:2000});
+   this.route.navigateByUrl("/auth/login")},
+   (error)=>{const toast = this.toast.error(
+    {detail: error.error,
+    duration:2000});})
+
  }
 
   
