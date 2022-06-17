@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class PostDetailsComponent implements OnInit {
 
   public current_image_index=0;
-  public nbr_of_images = 3;
+  public nbr_of_images = 0;
   public images:number[] = [];
   public post:any ;
   public basic_link = environment.host;
@@ -29,6 +29,7 @@ export class PostDetailsComponent implements OnInit {
           for(let i=0;i<this.post.images.length;i++){
             this.images.push(i);
           }
+          this.nbr_of_images = this.images.length;
         }
       
     );

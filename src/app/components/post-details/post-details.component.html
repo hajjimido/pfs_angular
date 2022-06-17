@@ -1,10 +1,10 @@
 <div class="my_container content d-flex flex-column align-items-center">
     <div class="post_container d-flex flex-column col-11 col-lg-10 col-md-10 mt-5">
        <div class="images_container">
-            <div *ngIf="nbr_of_images>0" class="arrow arrow_back" (click)="return()">
+            <div *ngIf="nbr_of_images>1" class="arrow arrow_back" (click)="return()">
                 <mat-icon>arrow_back</mat-icon>
             </div>
-            <div *ngIf="nbr_of_images>0" class="arrow arrow_forward" (click)="next()">
+            <div *ngIf="nbr_of_images>1" class="arrow arrow_forward" (click)="next()">
                 <mat-icon>arrow_forward</mat-icon>
             </div>
             <img *ngFor="let image of post?.images;let i=index" class="post_image smooth_transition" [ngClass]="{'to_the_right': i !=0}"
