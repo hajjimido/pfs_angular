@@ -1,18 +1,30 @@
-<table class="table">
-    <tr>
-        <th>ID</th><th>photo</th><th>Titre</th><th>Price</th><th>type</th>
-    </tr>
-    <tr *ngFor="let p of posts">
-        <td><h1>{{p.id}}</h1></td>
-        <td><img style="width: 80px;" src="../../assets/image/bg.jpg"></td>
-        <td><h1>{{p.title}}</h1></td>
-        <td><h1>{{p.price}}</h1></td>
-        <td><h1>{{p.type}}</h1></td>
+<table class="table table-bordered">
+  <tr>
+    <th>ID</th>
+    <th>photo</th>
+    <th>Titre</th>
+    <th>Price</th>
+    <th>type</th>
+  </tr>
+  <tr *ngFor="let p of posts">
+    <td>
+      {{ p.id }}
+    </td>
+    <td><img style="width: 100px" [src]="this.getImages(p)" /></td>
+    <td>
+      {{ p.title }}
+    </td>
+    <td>{{ p.price }}</td>
+    <td>
+      {{ p.type }}
+    </td>
 
-        
-    
-   
-    <button  style="margin-top:5%;width: 70%;" class="btn btn-danger" (click)="delete(p.id,p.user.auth.email)" >delete</button><br>
-
-</tr>
+    <button
+      style="margin-top: 22px; width: 70%"
+      class="btn btn-danger"
+      (click)="delete(p.id)"
+    >
+      delete</button
+    ><br />
+  </tr>
 </table>

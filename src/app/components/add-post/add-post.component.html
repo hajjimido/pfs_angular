@@ -1,87 +1,149 @@
-<div class="my_container m-0 col-12 row d-flex align-items-center justify-content-center">
+<div
+  class="my_container m-0 col-12 row d-flex align-items-center justify-content-center"
+>
+  <form
+    #myForm="ngForm"
+    class="m-0 d-flex flex-column col-11"
+    (submit)="createPost($event)"
+    enctype="multipart/form-data"
+  >
+    <h1
+      class="text-primary fw-bolder align-self-center"
+      style="font-size: 2rem"
+    >
+      Creation of post
+    </h1>
 
-    <form #myForm="ngForm" class="m-0 d-flex flex-column col-11" 
-    (submit)="createPost($event)" enctype="multipart/form-data">
-
-        <h1 class="text-primary fw-bolder align-self-center" style="font-size:2rem;">Creation of post</h1>
-
-        <div class="position-relative overflow-hidden py-5 ">
-            <div id="step_one_container" class="smooth_transition px-1"> 
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 ">
-                        <label for="type" class="pb-1 my_label">Type:</label>
-                        <select id="type" name="type" class="form-control form-select" ngModel required>   
-                          <option selected disabled value="">Type of property</option>
-                          <option value="service">Service</option>
-                          <option value="product">Product</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-8 col-md-6 mt-3 mt-md-0">
-                        <label for="title" class="pb-1 my_label me-3">Title:</label>
-                        <input type="text" name="title" class="form-control" placeholder="Enter the post title" required  ngModel />
-                    </div>
-                </div>
-                <div class="mt-3">
-                    <label class="my_label">Description:</label>
-                    <textarea class="form-control" name="description" rows="3" ngModel required></textarea>
-                </div>
-                <div class="mt-3">
-                    <label for="price" class="pb-1 my_label me-3">Price:</label>
-                    <input type="text" id="price" name="price" class="form-control" placeholder="Enter the prince in DH" required  ngModel />
-                </div>  
-            </div>
-
-            <div id="step_two_container" class="smooth_transition col-12 px-1" 
-            (dragover)="dragOver()" (dragleave)="dragLeave()" (drop)="drop($event)"
+    <div class="position-relative overflow-hidden py-5">
+      <div id="step_one_container" class="smooth_transition px-1">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <label for="type" class="pb-1 my_label">Type:</label>
+            <select
+              id="type"
+              name="type"
+              class="form-control form-select"
+              ngModel
+              required
             >
-                <img src="../../../assets/image/add_image_background.svg"
-                height="100px" class="mb-3" />
-                <div class="my_text my-2">
-                    Drag & Drop to upload file
-                </div>
-                <div class="my_text mb-3">
-                    Or
-                </div>
-                <input type="file" id="file" name="file" class="d-none"
-                (change)="browseButton($event)" />
-                <label for="file" id="browse_file"
-                class="btn btn-primary px-4 py-1 align-self-center my_button"
-                >Browse File
-                </label> 
-                <div id="images_container" class="d-flex mt-4">
-                    <div *ngFor="let i of [0,1,2]" class="d-none mx-3" id="my_image_container_{{i}}">
-                        <div class="d-flex justify-content-between">
-                            <mat-icon 
-                            *ngIf="principle_image == i"class="text-warning">star</mat-icon>
-                            <mat-icon 
-                            *ngIf="principle_image != i"class="text-warning"
-                            (click)="favoriteImage(i)">star_border</mat-icon>
-                            <mat-icon class="text-danger" (click)="removeImage(i)">close</mat-icon>
-                        </div>
-                        <div class="image_container">
-                            <img id="my_image_{{i}}" class="image" src="" />
-                        </div>
-                    </div>
-                </div>       
+              <option selected disabled value="">Type of property</option>
+              <option value="service">Service</option>
+              <option value="product">Product</option>
+            </select>
+          </div>
+          <div class="col-lg-8 col-md-6 mt-3 mt-md-0">
+            <label for="title" class="pb-1 my_label me-3">Title:</label>
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              placeholder="Enter the post title"
+              required
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="mt-3">
+          <label class="my_label">Description:</label>
+          <textarea
+            class="form-control"
+            name="description"
+            rows="3"
+            ngModel
+            required
+          ></textarea>
+        </div>
+        <div class="mt-3">
+          <label for="price" class="pb-1 my_label me-3">Price:</label>
+          <input
+            type="text"
+            id="price"
+            name="price"
+            class="form-control"
+            placeholder="Enter the prince in DH"
+            required
+            ngModel
+          />
+        </div>
+      </div>
+
+      <div
+        id="step_two_container"
+        class="smooth_transition col-12 px-1"
+        (dragover)="dragOver()"
+        (dragleave)="dragLeave()"
+        (drop)="drop($event)"
+      >
+        <img
+          src="../../../assets/image/add_image_background.svg"
+          height="100px"
+          class="mb-3"
+        />
+        <div class="my_text my-2">Drag & Drop to upload file</div>
+        <div class="my_text mb-3">Or</div>
+        <input
+          type="file"
+          id="file"
+          name="file"
+          class="d-none"
+          (change)="browseButton($event)"
+        />
+        <label
+          for="file"
+          id="browse_file"
+          class="btn btn-primary px-4 py-1 align-self-center my_button"
+          >Browse File
+        </label>
+        <div id="images_container" class="d-flex mt-4">
+          <div
+            *ngFor="let i of [0, 1, 2]"
+            class="d-none mx-3"
+            id="my_image_container_{{ i }}"
+          >
+            <div class="d-flex justify-content-between">
+              <mat-icon *ngIf="principle_image == i" class="text-warning"
+                >star</mat-icon
+              >
+              <mat-icon
+                *ngIf="principle_image != i"
+                class="text-warning"
+                (click)="favoriteImage(i)"
+                >star_border</mat-icon
+              >
+              <mat-icon class="text-danger" (click)="removeImage(i)"
+                >close</mat-icon
+              >
             </div>
-    
+            <div class="image_container">
+              <img id="my_image_{{ i }}" class="image" src="" />
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="d-flex justify-content-between mt-5">
-            <div *ngIf="actualStep == 1"></div>
-            <button *ngIf="actualStep == 2" class="btn btn-primary px-4 py-2 align-self-center my_button"
-            (click)="previousStep()">
-                Previous
-            </button>
-            <button *ngIf="actualStep == 1" class="btn btn-primary px-4 py-2 align-self-center my_button"
-            (click)="nextStep()">
-                Next
-            </button>
-            <button *ngIf="actualStep == 2" class="btn btn-primary px-4 py-2 align-self-center my_button">
-                Submit
-            </button>
-            
-        </div>
-    </form>
-
+    <div class="d-flex justify-content-between mt-5">
+      <div *ngIf="actualStep == 1"></div>
+      <button
+        *ngIf="actualStep == 2"
+        class="btn btn-primary px-4 py-2 align-self-center my_button"
+        (click)="previousStep()"
+      >
+        Previous
+      </button>
+      <button
+        *ngIf="actualStep == 1"
+        class="btn btn-primary px-4 py-2 align-self-center my_button"
+        (click)="nextStep()"
+      >
+        Next
+      </button>
+      <button
+        *ngIf="actualStep == 2"
+        class="btn btn-primary px-4 py-2 align-self-center my_button"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 </div>

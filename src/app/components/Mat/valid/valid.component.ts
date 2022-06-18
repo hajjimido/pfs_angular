@@ -5,29 +5,27 @@ import { TokenManagerService } from 'src/app/service/token-manager.service';
 @Component({
   selector: 'app-valid',
   templateUrl: './valid.component.html',
-  styleUrls: ['./valid.component.css']
+  styleUrls: ['./valid.component.css'],
 })
 export class ValidComponent implements OnInit {
-
-  posts:any
-  constructor(private nonvalide:AuthService,private tokenManager:TokenManagerService) { }
+  posts: any;
+  constructor(
+    private nonvalide: AuthService,
+    private tokenManager: TokenManagerService
+  ) {}
 
   ngOnInit(): void {
     this.nonvalide.getMyProduitValide(this.tokenManager.getemail()).subscribe(
-      (data:any)=>{
+      (data: any) => {
         this.posts = data;
-        console.log(data)
-            
+        console.log(data);
       },
-      (error)=>{
+      (error) => {
         this.posts = [];
       }
     );
-
   }
-  delete(id:any){
+  delete(id: any) {
     this.nonvalide.deleteProduct(id);
-    
   }
-
 }

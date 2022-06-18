@@ -1,11 +1,17 @@
-<div id="content" class="row m-0 px-lg-2 px-3 pt-5 justify-content-md-start p-0
-justify-content-center d-flex" >
-    <app-post *ngFor="let post of data?.content" class="col-xl-4 col-sm-9 col-md-6 col-11"
-        [post]="post"> 
-    </app-post>
-    <h1 *ngIf="data?.content.length == 0" class="m-0 p-0 no_result">
-        No result
-    </h1>
-    
+<div
+  id="content"
+  class="row m-0 px-lg-2 px-3 pt-5 justify-content-md-start p-0 justify-content-center d-flex"
+>
+  <app-post
+    *ngFor="let post of data?.content"
+    class="col-xl-4 col-sm-9 col-md-6 col-11"
+    [post]="post"
+  >
+  </app-post>
+  <h1 *ngIf="data?.content.length == 0" class="m-0 p-0 no_result">No result</h1>
 </div>
-<app-pagination [pages]="pages" class="pagination" (paginationEvent)="changePage()"></app-pagination>
+<app-pagination
+  [pages]="pages"
+  class="pagination"
+  (paginationEvent)="changePage()"
+></app-pagination>
