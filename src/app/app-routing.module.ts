@@ -19,99 +19,96 @@ import { NewCodeComponent } from './components/ForgetPassword/new-code/new-code.
 import { SendCodeComponent } from './components/ForgetPassword/send-code/send-code.component';
 import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/verify-code.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 
 const routes: Routes = [
   {
-    path:"auth" ,
-    children:[
-      {path:"login",component:LoginComponent,
-        data:{title:"Login"}},
-        {path:"fogetPassword",children:[
-          {path:"sendCode",component:SendCodeComponent
-          },
-          {path:"verifyCode/:username",component:VerifyCodeComponent
-          },
-          {path:"newCode/:username",component:NewCodeComponent
-          }
-        ]},
-      {path:"register",component:RegisterComponent,
-        data:{title:"Register"}},
-      {path:"admin",component:LoginAdminComponent,
-        data:{title:"Login"}},
-      {path:"",redirectTo:"/auth/login",pathMatch:"full"}
-    ]
-  }
-    ,
-  {
-    path:"",
-    component:HomeComponent,
-    children:[
+    path: 'auth',
+    children: [
+      { path: 'login', component: LoginComponent, data: { title: 'Login' } },
       {
-        path:"",
-        component:MainPageComponent
+        path: 'fogetPassword',
+        children: [
+          { path: 'sendCode', component: SendCodeComponent },
+          { path: 'verifyCode/:username', component: VerifyCodeComponent },
+          { path: 'newCode/:username', component: NewCodeComponent },
+        ],
       },
       {
-        path:"moi",
-        component:NavProfilMESANNONCESComponent,
-        children:[
-          {
-            path:"profile",
-            component:ProfileComponent,
-            canActivate:[AuthGuard]
-          },
-          {
-            path:"mesAnnonces",
-            component:MesAnnoncesComponent,
-            canActivate:[AuthGuard]
-          },
-
-        ]
+        path: 'register',
+        component: RegisterComponent,
+        data: { title: 'Register' },
       },
       {
-        path:"post",
-        children:[
-          {
-            path:"add",
-            component:AddPostComponent,
-            canActivate:[AuthGuard]
-          },
-          {
-            path:":postSlug",
-            component:PostDetailsComponent  
-          }
-          
-        ]
-      }
+        path: 'admin',
+        component: LoginAdminComponent,
+        data: { title: 'Login' },
+      },
+      { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ],
-    
-    
   },
   {
-    path:"admin",
-    component:AdminHomeComponent ,
-    children:[
-      { path:"dashboard",
-       component:AdminDashComponent
+    path: '',
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        component: MainPageComponent,
       },
-      { path:"users",
-      component:AdminUersComponent
-
-     },
-     { path:"products",
-      component:AdminProductComponent
-
-     },
-     {
-      path:"valide",
-      component:ProduitNonValideComponent
-     }
-
-    ]
-    }
+      {
+        path: 'moi',
+        component: NavProfilMESANNONCESComponent,
+        children: [
+          {
+            path: 'profile',
+            component: ProfileComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: 'mesAnnonces',
+            component: MesAnnoncesComponent,
+            canActivate: [AuthGuard],
+          },
+        ],
+      },
+      {
+        path: 'post',
+        children: [
+          {
+            path: 'edit/:id',
+            component: EditPostComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: 'add',
+            component: AddPostComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: ':postSlug',
+            component: PostDetailsComponent,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    component: AdminHomeComponent,
+    children: [
+      { path: 'dashboard', component: AdminDashComponent },
+      { path: 'users', component: AdminUersComponent },
+      { path: 'products', component: AdminProductComponent },
+      {
+        path: 'valide',
+        component: ProduitNonValideComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

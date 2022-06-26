@@ -39,6 +39,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NewCodeComponent } from './components/ForgetPassword/new-code/new-code.component';
 import { SendCodeComponent } from './components/ForgetPassword/send-code/send-code.component';
 import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/verify-code.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/ver
     SendCodeComponent,
     VerifyCodeComponent,
     NewCodeComponent,
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,
