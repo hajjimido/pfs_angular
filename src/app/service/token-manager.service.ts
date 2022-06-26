@@ -19,12 +19,12 @@ export class TokenManagerService {
   }
  
   public disconnect(){
-   return localStorage.clear();
+    localStorage.clear();
+    
   }
   
   isLogged():boolean{
     if(this.getRoles() != null){
-      console.log(localStorage.getItem("access-token"))
       return true;
     }
     return false;
@@ -36,7 +36,6 @@ export class TokenManagerService {
       let decodedJwtJsonData = window.atob(jwtData)
       let decodedJwtData = JSON.parse(decodedJwtJsonData)  
       return decodedJwtData.sub;
-      
   }
 }
 

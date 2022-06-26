@@ -40,6 +40,7 @@ import { NewCodeComponent } from './components/ForgetPassword/new-code/new-code.
 import { SendCodeComponent } from './components/ForgetPassword/send-code/send-code.component';
 import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/verify-code.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

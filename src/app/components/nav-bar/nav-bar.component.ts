@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { TokenManagerService } from 'src/app/service/token-manager.service';
 
 
@@ -10,10 +11,9 @@ import { TokenManagerService } from 'src/app/service/token-manager.service';
 })
 export class NavBarComponent implements OnInit {
 
-
   @Output() eventEmitter = new EventEmitter();
-  public isConnected :boolean;
-  constructor(private router:Router,private token:TokenManagerService) { }
+  public isConnected :any=false;
+constructor(private router:Router,private token:TokenManagerService) { }
 
   ngOnInit(): void {
     this.isConnected = this.token.isLogged();
@@ -48,9 +48,7 @@ export class NavBarComponent implements OnInit {
   
   disconnect(){
   
-     return this.token.disconnect();
-
+     this.token.disconnect(); 
+     location.reload();
   }
- 
-
 }

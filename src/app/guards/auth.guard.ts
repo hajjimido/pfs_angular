@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TokenManagerService } from '../service/token-manager.service';
 
@@ -18,7 +19,11 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
     const isAuthentication = this.token.isLogged();
-
+    const role = this.token.getRoles();
+    const roleData = this.router.data['role'] as string
+    if(roleData == role){
+      return true;
+    }
     if(isAuthentication){
       return true;
     }

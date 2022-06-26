@@ -21,11 +21,17 @@
         <mat-icon>account_circle</mat-icon>
         <h1 class="my_font_family">LOGIN</h1>
       </div>
+      
       <div *ngIf="isConnected" class="nav-element login me-4"
       routerLink="/moi/profile">
         <mat-icon>account_circle</mat-icon>
         <h1 class="my_font_family">PROFILE</h1>
      </div>
+     <div *ngIf="isConnected" class="nav-element login me-4"
+        (click)="disconnect()" routerLink="">
+        <mat-icon aria-hidden="false">logout</mat-icon>
+        <h1 class="my_font_family">LOGOUT</h1>
+      </div>
           
     </div>
 
@@ -53,7 +59,8 @@
         <mat-icon aria-hidden="false">filter_list</mat-icon>
         <div class="ms-3">Add filter</div>
       </button>
-    </div>    
+    </div> 
+    
 </nav>
 
 

@@ -43,6 +43,7 @@ const routes: Routes = [
         path: 'admin',
         component: LoginAdminComponent,
         data: { title: 'Login' },
+        
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ],
@@ -96,12 +97,13 @@ const routes: Routes = [
     path: 'admin',
     component: AdminHomeComponent,
     children: [
-      { path: 'dashboard', component: AdminDashComponent },
-      { path: 'users', component: AdminUersComponent },
-      { path: 'products', component: AdminProductComponent },
+      { path: 'dashboard', component: AdminDashComponent, canActivate: [AuthGuard],data:{role:'ADMIN'} },
+      { path: 'users', component: AdminUersComponent, canActivate: [AuthGuard],data:{role:'ADMIN'} },
+      { path: 'products', component: AdminProductComponent, canActivate: [AuthGuard],data:{role:'ADMIN'} },
       {
         path: 'valide',
         component: ProduitNonValideComponent,
+        canActivate: [AuthGuard],data:{role:'ADMIN'}
       },
     ],
   },
