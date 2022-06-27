@@ -73,6 +73,8 @@ export class AuthService {
             acc: response.access_token,
             ref: response.refresh_token,
           });
+          console.log(this.tokenManager.getRoles());
+
           if (authentication_type == 'USER') {
             this.router.navigate(['']);
           } else {

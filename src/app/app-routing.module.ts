@@ -18,8 +18,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { NewCodeComponent } from './components/ForgetPassword/new-code/new-code.component';
 import { SendCodeComponent } from './components/ForgetPassword/send-code/send-code.component';
 import { VerifyCodeComponent } from './components/ForgetPassword/verify-code/verify-code.component';
-import { AuthGuard } from './guards/auth.guard';
+
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -43,7 +44,6 @@ const routes: Routes = [
         path: 'admin',
         component: LoginAdminComponent,
         data: { title: 'Login' },
-        
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
     ],
@@ -96,14 +96,33 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminHomeComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'ADMIN' },
+
     children: [
-      { path: 'dashboard', component: AdminDashComponent, canActivate: [AuthGuard],data:{role:'ADMIN'} },
-      { path: 'users', component: AdminUersComponent, canActivate: [AuthGuard],data:{role:'ADMIN'} },
-      { path: 'products', component: AdminProductComponent, canActivate: [AuthGuard],data:{role:'ADMIN'} },
+      {
+        path: 'dashboard',
+        component: AdminDashComponent,
+        canActivate: [AuthGuard],
+        data: { role: 'ADMIN' },
+      },
+      {
+        path: 'users',
+        component: AdminUersComponent,
+        canActivate: [AuthGuard],
+        data: { role: 'ADMIN' },
+      },
+      {
+        path: 'products',
+        component: AdminProductComponent,
+        canActivate: [AuthGuard],
+        data: { role: 'ADMIN' },
+      },
       {
         path: 'valide',
         component: ProduitNonValideComponent,
-        canActivate: [AuthGuard],data:{role:'ADMIN'}
+        canActivate: [AuthGuard],
+        data: { role: 'ADMIN' },
       },
     ],
   },
